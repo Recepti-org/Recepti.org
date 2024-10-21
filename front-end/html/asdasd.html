@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Card with Popup</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Optional: Custom styles */
+        .modal-content {
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5 p-sm-7 p-md-3 p-lg-3">
+        <div class="row">
+            <div class="col-md-4 col-sm-12 mb-4" id="zunanjidivcard-res">
+                <div class="card product-card" onclick="location.href='izdelek copy.html'" style="background-color: white; height: 520px;" id="card-produkti-res">
+                    <img src="../images/60670357.jpg" class="card-img-top" alt="Carski praženec">
+                    <div class="card-body" style="overflow: hidden;" id="card-body-naindex-res">
+                        <h5 class="card-title">Carski praženec</h5>
+
+                        <br>
+                        <button class="btn btn-danger" onclick="showRecipeDetails()">Spremeni recept</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Modal -->
+    <div class="modal fade" id="recipeModal" tabindex="-1" aria-labelledby="recipeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="recipeModalLabel">Spremeni recept</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="recipeForm">
+                        <div class="form-group">
+                            <label for="recipeName">Ime Recepta</label>
+                            <input type="text" class="form-control" id="recipeName" value="Carski praženec">
+                        </div>
+                        <div class="form-group">
+                            <label for="recipeDescription">Opis</label>
+                            <textarea class="form-control" id="recipeDescription" rows="3">Opis recepta tukaj.</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="recipeDifficulty">Težavnost</label>
+                            <input type="text" class="form-control" id="recipeDifficulty" value="Enostavno">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Zapri</button>
+                    <button type="button" class="btn btn-primary" onclick="saveRecipeChanges()">Shrani spremembe</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function showRecipeDetails() {
+            // Here you can load dynamic content if needed
+            $('#recipeModal').modal('show'); // Show the modal
+        }
+
+        function saveRecipeChanges() {
+            // Get the values from the form
+            const name = document.getElementById('recipeName').value;
+            const description = document.getElementById('recipeDescription').value;
+            const difficulty = document.getElementById('recipeDifficulty').value;
+
+            // Here you can implement the logic to save these changes (e.g., send to server or update UI)
+
+            // For demonstration, just log them to the console
+            console.log('Updated Recipe:', { name, description, difficulty });
+
+            // Close the modal
+            $('#recipeModal').modal('hide');
+        }
+    </script>
+</body>
+
+</html>
