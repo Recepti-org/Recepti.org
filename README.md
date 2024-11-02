@@ -113,6 +113,27 @@ Projekt je razdeljen na smiselne mape in datoteke, da omogočimo enostavno uprav
 
 ## Navodila za razvijalce
 
+## Diagram primera uporabe
+   ![Use case](./front-end/images/Posnetek%20zaslona%202024-11-02%20171803.png)
+
+   1. Ogled vseh receptov:
+      Uporabnik lahko pregleda vse razpoložljive recepte v aplikaciji. Na voljo ima dodatni možnosti filtriranja po priporočeno in iskanja po vnosu, ki omogočata bolj specifično iskanje receptov.
+
+   2. Ogled recepta:
+      Uporabnik lahko pregleda podrobnosti posameznega recepta s seznama.
+
+   3. Dodajanje recepta:
+      Uporabnik lahko dodaja nove recepte tako, da izpolni obrazec in shrani spremembe. Ta možnost omogoča uporabnikom, da prispevajo nove recepte v bazo.
+
+   4. Ogled mojih receptov:
+      Uporabnik lahko pregleda seznam receptov, ki jih je sam ustvaril. Iz te možnosti lahko recepte tudi spremeni ali odstrani.
+
+   5. Spreminjanje recepta:
+      Uporabnik lahko spremeni katerikoli recept, ki ga je ustvaril – lahko posodobi sestavine, navodila ali druge podrobnosti recepta.
+
+   6. Odstrani recept:
+      Uporabnik ima možnost, da odstrani katerega koli izmed receptov, ki jih je predhodno ustvaril.
+
 ### Prispevanje k projektu Recepti Org lahko na naslednje načine:
 
 
