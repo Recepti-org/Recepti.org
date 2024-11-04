@@ -113,6 +113,24 @@ Projekt je razdeljen na smiselne mape in datoteke, da omogočimo enostavno uprav
 
 ## Navodila za razvijalce
 
+# Faze razvoja
+
+## Zajem zahtev
+
+## Vizija
+
+_Vizija projekta Recepti.org_
+Recepti.org je platforma za ljubitelje kulinarike – od začetnikov do profesionalcev. 
+Naša vizija je ustvariti sodoben in intuitiven prostor, ki rešuje ključne težave uporabnikov, 
+kot so nepreglednost shranjevanja receptov, omejena prilagodljivost sestavin, 
+iskanje navdiha ter preprosto shranjevanje in organiziranje priljubljenih receptov.
+Z enostavnim iskanjem, možnostjo prilagoditve receptov po meri in pregledno organizacijo 
+platforma podpira ustvarjalnost ter pomaga uporabnikom obogatiti njihove kulinarične izkušnje.
+
+## Besednjak
+
+
+
 ## Diagram primera uporabe
    ![Use case](./front-end/images/Posnetek%20zaslona%202024-11-02%20171803.png)
 
