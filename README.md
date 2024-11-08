@@ -146,6 +146,7 @@ platforma podpira ustvarjalnost ter pomaga uporabnikom obogatiti njihove kulinar
 | **Sladica**       | Jedi, ki so običajno sladke in postrežene ob koncu obroka, kot so peciva, torte, piškoti ali sadne jedi. |
 | **Glavna jed**    | Osrednji del obroka, ki se običajno pripravlja za kosilo in ga sestavljajo beljakovinske in škrobnate komponente, kot so meso, ribe, testenine, riž, zelenjava ipd. |
 | **Profil**        | Osebni račun uporabnika, kjer so shranjeni vsi njegovi podatki, ki jih je vnesel ob registraciji, in priljubljeni recepti, s katerimi si uporabnik prilagodi izkušnjo uporabe aplikacije. |
+| **Ocena**         | Številska in/ali besedna vrednost, ki jo uporabnik dodeli receptu, da izrazi svoje zadovoljstvo z jedjo ali kakovost recepta. Ocene so prikazane kot število zvezdic med 1 in 5, kjer višja ocena predstavlja višje zadovoljstvo in kakovost recepta. Prikazane pa so lahko tudi z opisom mnenja o receptu. Ocene pripomorejo k boljšemu razvrščanju receptov glede na priljubljenost in uporabnikom omogočajo, da hitreje najdejo kakovostne recepte.  | 
 
 
 ## Diagram primera uporabe
