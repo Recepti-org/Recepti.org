@@ -114,7 +114,7 @@ Projekt je razdeljen na smiselne mape in datoteke, da omogočimo enostavno uprav
 ## Navodila za razvijalce
 
 ## Diagram primera uporabe
-   ![Use case](./front-end/images/Posnetek%20zaslona%202024-11-02%20171803.png)
+   ![Use case](./front-end/images/Posnetek%20zaslona%202024-11-10%20181758.png)
 
    1. Ogled vseh receptov:
       Uporabnik lahko pregleda vse razpoložljive recepte v aplikaciji. Na voljo ima dodatni možnosti filtriranja po priporočeno in iskanja po vnosu, ki omogočata bolj specifično iskanje receptov.
