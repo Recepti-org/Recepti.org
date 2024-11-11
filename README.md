@@ -151,7 +151,7 @@ platforma podpira ustvarjalnost ter pomaga uporabnikom obogatiti njihove kulinar
 | **Mnenje**                 | Besedna vrednost ali komentar, ki ga uporabnik doda receptu, da izrazi svoje osebne vtise, izkušnje ali nasvete glede priprave jedi. Mnenje omogoča drugim uporabnikom vpogled v subjektivne ocene, prilagoditve ali izboljšave recepta, kar jim lahko pomaga pri pripravi jedi. Mnenje je poljubne dolžine in vedno dopolnjuje oceno recepta.                                    |
 
 ## Diagram primera uporabe
-   ![Use case](./front-end/images/Posnetek%20zaslona%202024-11-10%20181758.png)
+   ![Use case](./front-end/images/Posnetek%20zaslona%202024-11-11%20184747.png)
 
 
 1.  Ogled vseh receptov:
