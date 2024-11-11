@@ -150,8 +150,8 @@ platforma podpira ustvarjalnost ter pomaga uporabnikom obogatiti njihove kulinar
 | **Ocena**                  | Številska in besedna vrednost, ki jo uporabnik dodeli receptu, da izrazi svoje zadovoljstvo z jedjo ali kakovost recepta. Ocene so prikazane kot število zvezdic med 1 in 5, kjer višja ocena predstavlja višje zadovoljstvo in kakovost recepta. Prikazane pa so z mnenjem uporabnika o receptu. Ocene pripomorejo k boljšemu razvrščanju receptov glede na priljubljenost in uporabnikom omogočajo, da hitreje najdejo kakovostne recepte. |
 
 ## Diagram primera uporabe
+   ![Use case](./front-end/images/Posnetek%20zaslona%202024-11-11%20184747.png)
 
-![Use case](./front-end/images/Posnetek%20zaslona%202024-11-02%20171803.png)
 
 1.  Ogled vseh receptov:
     Uporabnik lahko pregleda vse razpoložljive recepte v aplikaciji. Na voljo ima dodatni možnosti filtriranja po priporočeno in iskanja po vnosu, ki omogočata bolj specifično iskanje receptov.
