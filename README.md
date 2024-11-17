@@ -540,6 +540,9 @@ platforma podpira ustvarjalnost ter pomaga uporabnikom obogatiti njihove kulinar
 **Izjeme:**
 Če uporabnik še ni dodal mnenja za ta recept, sistem prikaže obvestilo, da mnenje ni na voljo za urejanje.
 
+## Class Diagram
+   ![Class Diagram](./front-end/images/Recepti.org_ClassDiagram_v2.png)
+
 ### Prispevanje k projektu Recepti Org lahko na naslednje načine:
 
 **Predlogi za nove funkcionalnosti**:
