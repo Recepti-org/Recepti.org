@@ -540,8 +540,134 @@ platforma podpira ustvarjalnost ter pomaga uporabnikom obogatiti njihove kulinar
 **Izjeme:**
 Če uporabnik še ni dodal mnenja za ta recept, sistem prikaže obvestilo, da mnenje ni na voljo za urejanje.
 
-## Class Diagram
+# Class Diagram
    ![Class Diagram](./front-end/images/Recepti.org_ClassDiagram_v2.png)
+
+## Namen Razredov in Ključne Metode
+
+### Podatkovne entitete:
+
+### Koraki
+**Namen:** Predstavlja posamezni korak priprave recepta, vključno z njegovim opisom, zaporedjem in pripadnostjo receptu.
+
+**Ključne metode:**
+- `toString()`: Pretvori korak v niz, kar omogoča lažje prikazovanje podatkov v uporabniškem vmesniku ali logih.
+- `equals(Object)`: Primerja dva koraka za enakost na podlagi njihovih atributov.
+- `hashCode()`: Ustvari enoličen identifikator za objekt, ki se uporablja v strukturah, kot so zbirke.
+
+**Naloge:** Zagotavljajo osnovne operacije za primerjavo, identifikacijo in prikaz korakov receptov.
+
+### Recept
+**Namen:** Shranjuje podatke o receptu, vključno z avtorjem, težavnostjo, opisom, sliko in časom priprave.
+
+**Ključne metode:**
+- `toString()`: Pretvori recept v niz, kar omogoča lažje razhroščevanje in prikaz podatkov.
+- `equals(Object)`: Primerja dva recepta glede na njihove atribute, kot je ID.
+- `hashCode()`: Generira unikatni identifikator recepta za uporabo v zbirkah.
+
+**Naloge:** Podpirajo identifikacijo, primerjavo in prikaz receptov ter so osnova za druge metode upravljanja z recepti.
+
+### Uporabnik
+**Namen:** Predstavlja uporabnika sistema, ki lahko ustvarja recepte.
+
+**Ključne metode:**
+- `toString()`: Pretvori podatke o uporabniku v niz.
+- `equals(Object)`: Preveri, ali sta dva uporabnika enaka.
+- `hashCode()`: Generira unikatni identifikator za uporabnika.
+
+**Naloge:** Omogočajo enostavno identifikacijo, primerjavo in prikaz uporabniških podatkov.
+
+### Ocena
+**Namen:** Zabeleži oceno recepta, ki jo lahko uporabnik pusti, in omogoča podrobnosti, kot so število zvezdic, komentar in povezava z določenim receptom.
+
+**Ključne metode:**
+- `toString()`: Pretvori oceno v berljiv niz.
+- `equals(Object)`: Primerja dve oceni na podlagi njihovih atributov.
+- `hashCode()`: Ustvari identifikator za oceno, uporaben pri shranjevanju v zbirkah.
+
+**Naloge:** Upravljajo s podatki o ocenah in omogočajo enostavno delo z njimi v sistemu.
+
+---
+
+### Kontrolerji:
+
+### KorakiController
+**Namen:** Upravljati logiko povezano s koraki receptov, kot so dodajanje, pridobivanje in urejanje korakov.
+
+**Ključne metode:**
+- `getRecept(int)`: Pridobi vse korake, povezane z določenim receptom.  
+  **Naloga:** Omogoča prikaz korakov uporabnikom in povezavo korakov z receptom.
+- `postKorak(Koraki)`: Doda nov korak receptu.  
+  **Naloga:** Ustvari nove korake za obstoječe recepte.
+
+### ReceptController
+**Namen:** Upravljati logiko povezano z recepti, vključno s pridobivanjem, ustvarjanjem, posodabljanjem in brisanjem receptov.
+
+**Ključne metode:**
+- `getRecept(int)`: Pridobi recept po ID-ju.  
+  **Naloga:** Uporabniku omogoči ogled določenega recepta.
+- `postRecept(Recept)`: Doda nov recept v sistem.  
+  **Naloga:** Ustvarjanje novih receptov.
+- `putRecept(Recept)`: Posodobi obstoječi recept.  
+  **Naloga:** Omogoča urejanje receptov.
+- `deleteRecept(int)`: Izbriše recept iz sistema.  
+  **Naloga:** Odstranjevanje neveljavnih ali neželenih receptov.
+- `searchRecepti(String)`: Poišče recepte na podlagi iskalnega niza.  
+  **Naloga:** Izboljša uporabniško izkušnjo z omogočanjem hitrega iskanja.
+
+### UporabnikController
+**Namen:** Upravljati logiko, povezano z uporabniki in njihovimi recepti, vključno z iskanjem receptov določenega uporabnika.
+
+**Ključne metode:**
+- `getReceptiByUporabnik(int)`: Pridobi vse recepte, ki jih je ustvaril določen uporabnik.  
+  **Naloga:** Prikaz vsebine, povezane z določenim avtorjem.
+- `getRecept(int)`: Pridobi podatke o uporabniku.  
+  **Naloga:** Zagotavlja podatke za identifikacijo in analizo uporabnikov.
+- `testiram()`: Testna metoda za pridobivanje seznamov uporabnikov.  
+  **Naloga:** Preverjanje povezav in dostopa do podatkov.
+
+### OcenaController
+**Namen:** Upravljati logiko za dodajanje, urejanje in pridobivanje ocen za recepte.
+
+**Ključne metode:**
+- `getOcene(int)`: Pridobi seznam ocen za določen recept.  
+  **Naloga:** Omogoča pregled povratnih informacij o receptu.
+- `postOcena(Ocena)`: Doda novo oceno za recept.  
+  **Naloga:** Omogoča uporabnikom ocenjevanje receptov.
+- `putOcena(Ocena)`: Posodobi obstoječo oceno.  
+  **Naloga:** Urejanje napačnih ali zastarelih ocen.
+
+---
+
+### Repozitoriji:
+
+### KorakiRepository
+**Namen:** Omogočiti dostop do podatkov, povezanih s koraki receptov.
+
+**Ključne metode:**
+- `findByTKrecepta(Recept)`: Pridobi seznam korakov, ki pripadajo določenemu receptu.  
+  **Naloga:** Povezovanje korakov z receptom in zagotavljanje podatkov za kontrolerje.
+
+### ReceptRepository
+**Namen:** Omogočiti dostop do podatkov o receptih, vključno z iskanjem po uporabniku ali ključnih besedah.
+
+**Ključne metode:**
+- `findByUporabnik(Uporabnik)`: Pridobi recepte, ki jih je ustvaril določen uporabnik.  
+  **Naloga:** Omogoča prikaz avtorjevih receptov.
+- `searchByKeyword(String)`: Poišče recepte glede na ključne besede.  
+  **Naloga:** Iskanje receptov po opisih, imenih ali drugih atributih.
+
+### OcenaRepository
+**Namen:** Omogočiti dostop do podatkov o ocenah receptov.
+
+**Ključne metode:**
+- `findByTKrecepta(Recept)`: Pridobi vse ocene, ki so povezane z določenim receptom.  
+  **Naloga:** Omogoča analiziranje in prikaz povratnih informacij.
+
+### UporabnikRepository
+**Nima metod**
+
+---
 
 ### Prispevanje k projektu Recepti Org lahko na naslednje načine:
 
