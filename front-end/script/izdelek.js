@@ -2,94 +2,106 @@ document.addEventListener('DOMContentLoaded', function () {
     const urlParams = new URLSearchParams(window.location.search);
     const productId = urlParams.get('id');
 
-            fetch(`http://localhost:8080/recept/${productId}`)  // Removed the colon and corrected the endpoint
-                .then(response => response.json())
-                .then(product => {
+    fetch(`http://localhost:8080/recept/${productId}`)
+        .then(response => response.json())
+        .then(product => {
+            console.log(product);
+            document.getElementById('ime').textContent = `${product.ime}`;
+            document.getElementById('cas').textContent = `${product.caspriprave} min`;
+            document.getElementById('opis').textContent = `${product.opis}`;
 
-                    console.log(product)
+            const myDiv = document.getElementById('slika');
+            const newElement = document.createElement('img');
+            newElement.src = '../images/' + product.slika;
+            newElement.classList = 'd-block w-100';
+            myDiv.appendChild(newElement);
 
-
-                    document.getElementById('ime').textContent = `${product.ime}`;
-
-
-                    document.getElementById('cas').textContent = `${product.caspriprave} min`;
-                    document.getElementById('opis').textContent = `${product.opis}`;
-                    
-                    const myDiv = document.getElementById('slika');
-
-                    // Create a new element, like a paragraph
-                    const newElement = document.createElement('img');
-                    newElement.src = '../images/' + product.slika;
-                    newElement.classList = 'd-block w-100';
-
-                    // Append the new element to the div
-                    myDiv.appendChild(newElement);
-
-                    const zvede = document.getElementById('tezavnost');
-        
-                    // Check if product.tezavnost is valid before appending
-                    if (product.tezavnost !== undefined && product.tezavnost !== null) {
-                        const starsDiv = vzvezdice(product.tezavnost);
-                        if (starsDiv instanceof Node) { // Ensure it's a valid Node
-                            zvede.appendChild(starsDiv);
-                        } else {
-                            console.error('vzvezdice did not return a valid Node');
-                        }
-                    } else {
-                        console.error('Invalid tezavnost value:', product.tezavnost);
-                    }
-
-
-                    var idrecepta = product.idrecepta
-                    fetch(`http://localhost:8080/koraki/${idrecepta}`)
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Network response was not ok ' + response.statusText);
-                        }
-                        return response.json();
-                    })
-                    .then(koraki => {
-                        console.log(koraki); // Logging the fetched data for debugging
-            
-                        const korakiList = document.getElementById('koraki');
-            
-                        // Clear existing list items if necessary
-                        korakiList.innerHTML = '';
-            
-                        // Assuming koraki is an array
-                        koraki.forEach((item, index) => {
-                            console.log(item)
-                            const listItem = document.createElement('li');
-                            listItem.className = 'list-group-item'; // Add the same class for styling
-                            listItem.textContent = `${index + 1}. ${item.opis}`; // Assuming item is a string
-            
-                            // Append the list item to the UL element
-                            korakiList.appendChild(listItem);
-                        });
-                    })
-                    .catch(error => {
-                        console.error('There has been a problem with your fetch operation:', error);
-                    });
-
-                })
-            })
-            function vzvezdice(x) {
-                const xe = parseInt(x);
-                const div = document.createElement('div'); // Create a div for stars
-    
-                for (let i = 0; i < 3; i++) {
-                    // Create an <i> element for each star
-                    const star = document.createElement('i');
-    
-                    if (i < xe) {
-                        star.className = 'fa-solid fa-star'; // Solid star
-                    } else {
-                        star.className = 'fa-regular fa-star'; // Regular star
-                    }
-    
-                    // Append each star to the div
-                    div.appendChild(star);
+            const zvede = document.getElementById('tezavnost');
+            if (product.tezavnost !== undefined && product.tezavnost !== null) {
+                const starsDiv = vzvezdice(product.tezavnost);
+                if (starsDiv instanceof Node) {
+                    zvede.appendChild(starsDiv);
                 }
-    
-                return div; // Return the div containing the stars
+            } else {
+                console.error('Invalid tezavnost value:', product.tezavnost);
             }
+
+            var idrecepta = product.idrecepta;
+            fetch(`http://localhost:8080/koraki/${idrecepta}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(koraki => {
+                    console.log(koraki);
+                    const korakiList = document.getElementById('koraki');
+                    korakiList.innerHTML = '';
+                    koraki.forEach((item, index) => {
+                        const listItem = document.createElement('li');
+                        listItem.className = 'list-group-item';
+                        listItem.textContent = `${index + 1}. ${item.opis}`;
+                        korakiList.appendChild(listItem);
+                    });
+                })
+                .catch(error => {
+                    console.error('There has been a problem with your fetch operation:', error);
+                });
+        });
+
+    document.getElementById("gumb").addEventListener('click', function () {
+        $('#recipeModal').modal('show');
+    });
+
+    // Function to render the star rating
+    function vzvezdice(x) {
+        const xe = parseInt(x);
+        const div = document.createElement('div');
+        div.classList.add('star-rating');
+
+        for (let i = 0; i < 5; i++) {
+            const star = document.createElement('span');
+            if (i < xe) {
+                star.classList.add('selected');
+            }
+            star.textContent = '★';
+            div.appendChild(star);
+        }
+
+        return div;
+    }
+
+    // Handle star click for rating
+    document.getElementById("starRating").addEventListener('click', function (event) {
+        const stars = Array.from(event.currentTarget.children);
+        const rating = stars.indexOf(event.target) + 1;
+
+        // Set the value of the hidden input for the rating
+        document.getElementById('ocenaSkladnosti').value = rating;
+
+        // Update the visual rating
+        stars.forEach((star, index) => {
+            if (index < rating) {
+                star.classList.add('selected');
+            } else {
+                star.classList.remove('selected');
+            }
+        });
+    });
+
+
+    document.getElementById("shrani").addEventListener('click', function (event) {
+        $('#recipeModal').modal('hide');
+        $('#questionModal').modal('show');
+    });
+
+
+    // Initialize the star rating
+    const starRatingDiv = document.getElementById('starRating');
+    for (let i = 0; i < 5; i++) {
+        const star = document.createElement('span');
+        star.textContent = '★';
+        starRatingDiv.appendChild(star);
+    }
+});
