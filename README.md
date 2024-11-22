@@ -665,7 +665,10 @@ platforma podpira ustvarjalnost ter pomaga uporabnikom obogatiti njihove kulinar
   **Naloga:** Omogoča analiziranje in prikaz povratnih informacij.
 
 ### UporabnikRepository
-**Nima metod**
+**Namen:** Omogočiti dostop do podatkov o uporabnikih.
+**Ključne metode:**
+- ni definiranih metod
+
 
 ---
 
