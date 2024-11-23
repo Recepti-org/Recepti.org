@@ -1,4 +1,4 @@
-package si.um.feri.Recepti.org.controller;
+package si.um.feri.Recepti.org.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
