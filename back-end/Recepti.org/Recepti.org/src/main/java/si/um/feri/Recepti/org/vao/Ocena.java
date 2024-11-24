@@ -10,12 +10,18 @@ public class Ocena {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idOcena")
     private int idOcena;
+
+    @Column(name = "stZvezdic", nullable = false)
     private int stZvezdic;
     private String mnenje;
     private String vprasanje;
 
+    //@Column(name = "idocena")
+    //private int idocena;
+    //private int stzvezdic;
+
     @ManyToOne
-    @JoinColumn(name = "TKrecepta")
+    @JoinColumn(name = "TKrecepta", referencedColumnName = "idrecepta")
     private Recept TKrecepta;
 
     //Constructors
@@ -24,6 +30,9 @@ public class Ocena {
     public Ocena(int idOcena, int stZvezdic, String mnenje, String vprasanje, Recept TKrecepta) {
         this.idOcena = idOcena;
         this.stZvezdic = stZvezdic;
+    //public Ocena(int idocena, int stzvezdic, String mnenje, String vprasanje, Recept TKrecepta) {
+        //this.idocena = idocena;
+        //this.stzvezdic = stzvezdic;
         this.mnenje = mnenje;
         this.vprasanje = vprasanje;
         this.TKrecepta = TKrecepta;

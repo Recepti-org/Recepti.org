@@ -8,6 +8,7 @@
   <!--Meta-->
   <meta name="product-id" id="productIdMeta" content="">
 
+
   <!--Naslov strani-->
   <title>Posvojitev</title><!--koncna-->
 
@@ -517,6 +518,11 @@
                 <label for="ocenaSkladnosti">Ocena recepta:</label><br>
                 <div class="star-rating" id="starRating"></div>
                 <input type="hidden" id="ocenaSkladnosti" min="1" max="5" required><br>
+                <div class="form-group">
+                  <label for="questionInput">Vprašanje:</label>
+                  <input type="text" class="form-control" id="questionInpute">
+                  <!--textarea class="form-control" id="questionInput" rows="3" required></textarea-->
+                </div>
               </form>
             </div>
             <div class="modal-footer">
@@ -527,8 +533,10 @@
         </div>
       </div>
 
+      <div id="oceneContainer"></div>
+
       <!-- Modal for Asking a Question -->
-      <div class="modal fade" id="questionModal" tabindex="-1" aria-labelledby="questionModalLabel" aria-hidden="true">
+      <!--div class="modal fade" id="questionModal" tabindex="-1" aria-labelledby="questionModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -551,7 +559,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div-->
 
       <!--FAQ Frequ ently Asked Questions-->
       <div class="container mt-4">
@@ -693,6 +701,117 @@
         </div>
       </div>
     </footer>
+
+    <!--script>// Fetch all ratings for the specific recipe
+      const urlParams = new URLSearchParams(window.location.search);
+      const receptId = urlParams.get('id'); // Extract the recipe ID from the URL
+      
+      if (receptId) {
+          fetch(`http://localhost:8080/ocena/byRecept/${receptId}`)
+              .then(response => {
+                  if (!response.ok) {
+                      throw new Error('Failed to fetch ocene for the recipe');
+                  }
+                  return response.json();
+              })
+              .then(ocene => {
+                  console.log('Ocene for recipe:', ocene);
+                  // Use the data (e.g., display it on the page)
+              })
+              .catch(error => console.error('Error:', error));
+      } else {
+          console.error('No recipe ID found in the URL.');
+      }
+      </script-->
+
+    <script>document.getElementById('shrani').addEventListener('click', function () {
+      const mnenje = document.getElementById('recipeName').value;
+      const ocenaSkladnosti = document.getElementById('ocenaSkladnosti').value;
+      const vprasanje = document.getElementById('questionInpute').value;
+      
+      // Predpostavljamo, da je ID recepta dostopen v nekem HTML elementu (npr. <span id="recipeId">2</span>)
+      //const receptId = document.getElementById('recipeId').textContent; // Prilagodi glede na tvojo strukturo HTML-ja
+      // Preberi podatke iz localStorage
+// Preberi id iz URL-ja
+const urlParams = new URLSearchParams(window.location.search);
+    const receptId = urlParams.get('id'); // Pridobi parameter 'id' iz URL-ja
+
+    // Preveri, ali je receptId pravilno nastavljen
+    if (!receptId) {
+        console.error('ID recepta ni prisoten v URL-ju!');
+        return;
+    }
+
+    // Preveri, ali je receptId pravilno nastavljen
+    console.log("Recept ID:", receptId);
+  
+      fetch('http://localhost:8080/api/ocena/save', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+              stZvezdic: parseInt(ocenaSkladnosti, 10),
+              mnenje: mnenje,
+              vprasanje: vprasanje, // Assuming no question is being sent
+              TKrecepta: parseInt(receptId, 10) // Uporabi ID recepta iz URL-ja
+          })
+      })
+      .then(response => {
+          if (!response.ok) {
+              throw new Error('Failed to save ocena');
+          }
+          return response.json();
+      })
+      .then(data => {
+          console.log('Ocena saved:', data);
+          alert('Ocena uspešno shranjena!\nSte si premislili? Vaše mnenje lahko zdaj tudi spremenite.');
+      })
+      .catch(error => console.error('Error:', error));
+  });
+  
+  </script>
+
+  <!--script>
+    document.addEventListener('DOMContentLoaded', function () {
+    // Pridobitev ID-ja recepta iz URL-ja
+    const urlParams = new URLSearchParams(window.location.search); // Pridobi URL parametre
+    const receptId = urlParams.get('id'); // Poišči parametre z imenom 'id'
+
+    if (receptId) {
+        // Ko je ID recepta na voljo, pošlji GET zahtevo za ocene
+        fetch(`http://localhost:8080/api/ocena/${receptId}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Napaka pri pridobivanju ocen');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Tukaj obdelamo podatke, ko jih pridobimo
+                console.log('Ocene:', data);
+
+                // Na primer, prikažemo ocene v seznamu na strani
+                const oceneContainer = document.getElementById('oceneContainer'); // ID elementa na strani, kjer bomo prikazali ocene
+                data.forEach(ocena => {
+                    const ocenaDiv = document.createElement('div');
+                    ocenaDiv.classList.add('ocena');
+                    ocenaDiv.innerHTML = `
+                        <p>Število zvezdic: ${ocena.stZvezdic}</p>
+                        <p>Mnenje: ${ocena.mnenje}</p>
+                        <p>Vprašanje: ${ocena.vprasanje}</p>
+                    `;
+                    oceneContainer.appendChild(ocenaDiv);
+                });
+            })
+            .catch(error => {
+                console.error('Napaka pri pridobivanju ocen:', error);
+                alert('Prišlo je do napake pri pridobivanju ocen.');
+            });
+    } else {
+        alert('Recept ID ni bil najden v URL-ju.');
+    }
+});
+
+  </script-->
 
     <!--Bootstrap JS and dependencies-->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

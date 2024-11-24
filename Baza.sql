@@ -34,10 +34,10 @@ CREATE TABLE IF NOT EXISTS Koraki (
 
 CREATE TABLE IF NOT EXISTS Ocena (
     `idOcena` INT NOT NULL AUTO_INCREMENT,
-    `stZvezdic` INT NOT NULL,
+    `st_zvezdic` INT NOT NULL,
     `mnenje` VARCHAR(100) NOT NULL,
     `vprasanje` VARCHAR(100) NOT NULL,
-    `TKrecepta` INT NOT NULL,
+    `TKrecepta` INT,
     PRIMARY KEY (`idOcena`),
     FOREIGN KEY (TKrecepta) REFERENCES Recept (idrecepta)
 );
