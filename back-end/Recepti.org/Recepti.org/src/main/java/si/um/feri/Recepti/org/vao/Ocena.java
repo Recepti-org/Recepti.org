@@ -24,6 +24,7 @@ public class Ocena {
     @JoinColumn(name = "TKrecepta", referencedColumnName = "idrecepta")
     private Recept TKrecepta;
 
+
     //Constructors
     public Ocena() {}
 
