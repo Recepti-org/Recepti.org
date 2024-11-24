@@ -669,6 +669,56 @@ platforma podpira ustvarjalnost ter pomaga uporabnikom obogatiti njihove kulinar
 **Ključne metode:**
 - ni definiranih metod
 
+# Dokumentacija za funkcionalnost dodajanja ocen, mnenj in vprašanj  
+
+## Implementirana funkcionalnost  
+V aplikacijo smo dodali funkcionalnost, ki uporabnikom omogoča:  
+- **Dodajanje ocen** za recepte.  
+- **Dodajanje mnenj** za recepte.  
+- **Postavljanje vprašanj** avtorju recepta.  
+
+---
+# Opis delovanja funkcionalnosti ocenjevanja receptov 
+
+### Dodajanje ocen  
+- Uporabnik lahko doda oceno za recept, tako da izbere vrednost od 1 do 5 zvezdic.  
+- Ocena se shrani v sistem in posodobi povprečno oceno recepta.  
+
+### Dodajanje mnenj  
+- Uporabnik lahko napiše mnenje o receptu, ki vključuje njegovo izkušnjo, nasvete ali opažanja.  
+- Ob oddaji mnenja uporabnik avtorju recepta postavi dodatno vprašanje.  
+
+### Postavljanje vprašanj  
+- Ob dodajanju mnenja uporabnik vnese vprašanje za avtorja recepta.  
+- Vprašanje se posreduje avtorju recepta, ki lahko odgovori prek aplikacije.  
+- Vprašanja in odgovori so prikazani na strani recepta, da so dostopni tudi drugim uporabnikom.  
+
+## Preizkušanje funkcionalnosti  
+
+### Koraki za dodajanje ocen  
+1. Prijavite se v aplikacijo z veljavnim uporabniškim računom.  
+2. Na strani izbranega recepta poiščite sekcijo za ocenjevanje.  
+3. Izberite želeno število zvezdic (od 1 do 5) in kliknite **"Oddaj oceno"**.  
+4. Sistem prikaže obvestilo o uspešno oddani oceni, povprečna ocena recepta pa se posodobi.  
+
+### Koraki za dodajanje mnenj  
+1. Prijavite se v aplikacijo.  
+2. Na strani izbranega recepta poiščite sekcijo za dodajanje mnenja.  
+3. Vnesite svoje mnenje v besedilno polje.  
+4. Vnesite vprašanje za avtorja recepta v dodatno polje.  
+5. Kliknite **"Shrani vašo oceno"**.  
+6. Sistem prikaže obvestilo o uspešnem dodajanju mnenja in vprašanja.  
+
+### Koraki za pregled vprašanj in odgovorov  
+1. Na strani recepta poiščite sekcijo **"Vprašanja in odgovori"**.  
+2. Preberite vprašanja in odgovore drugih uporabnikov.  
+
+## Dostop do funkcionalnosti v aplikaciji  
+- Funkcionalnost dodajanja ocen, mnenj in vprašanj je na voljo vsem prijavljenim uporabnikom.  
+- Sekcije za ocenjevanje, mnenja in vprašanja so dostopne na strani posameznega recepta.  
+
+## Povečana interaktivnost  
+Ta razširjena funkcionalnost izboljšuje interaktivnost aplikacije in omogoča neposredno komunikacijo med uporabniki ter avtorji receptov, kar bogati uporabniško izkušnjo.  
 
 ---
 
