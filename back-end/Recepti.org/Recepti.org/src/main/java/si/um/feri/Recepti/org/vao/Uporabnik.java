@@ -14,8 +14,11 @@ public class Uporabnik {
     private String ime;
     private String priimek;
 
+
+    public Uporabnik() {
+    }
+
     // Constructors
-    public Uporabnik() {}
     public Uporabnik(String ime, String priimek) {
         this.ime = ime;
         this.priimek = priimek;

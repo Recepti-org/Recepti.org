@@ -12,10 +12,12 @@ package si.um.feri.Recepti.org.dao;
 import org.springframework.data.repository.CrudRepository;
 import si.um.feri.Recepti.org.vao.Ocena;
 import si.um.feri.Recepti.org.vao.Recept;
+import si.um.feri.Recepti.org.vao.Uporabnik;
 
 import java.util.List;
 
 public interface OcenaRepository extends CrudRepository<Ocena, Integer> {
     // Dodaj metodo za iskanje ocen po ID-ju recepta
     List<Ocena> findByTKrecepta(Recept recept);
+    List<Ocena> findByTKuporabnik(Uporabnik uporabnik);
 }

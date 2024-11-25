@@ -24,6 +24,9 @@ public class Ocena {
     @JoinColumn(name = "TKrecepta", referencedColumnName = "idrecepta")
     private Recept TKrecepta;
 
+    @ManyToOne
+    @JoinColumn(name = "TKuporabnik", referencedColumnName = "idUporabnika")
+    private Uporabnik TKuporabnik;
 
     //Constructors
     public Ocena() {}
@@ -38,4 +41,16 @@ public class Ocena {
         this.vprasanje = vprasanje;
         this.TKrecepta = TKrecepta;
     }
+
+
+    public Ocena(int idOcena, int stZvezdic, String mnenje, String vprasanje, Recept TKrecepta, Uporabnik TKuporabnik) {
+        this.idOcena = idOcena;
+        this.stZvezdic = stZvezdic;
+        this.mnenje = mnenje;
+        this.vprasanje = vprasanje;
+        this.TKrecepta = TKrecepta;
+        this.TKuporabnik = TKuporabnik;
+    }
+
+
 }

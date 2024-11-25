@@ -359,6 +359,11 @@
           </a>
         </li>
         <li class="column nav-item">
+          <a class="nav-link" href="mojeocene.html">
+            <h6>moje ocene</h6>
+          </a>
+        </li>
+        <li class="column nav-item">
           <a class="nav-link" href="onas.html">
             <h6>O nas</h6>
           </a>
@@ -744,16 +749,18 @@ const urlParams = new URLSearchParams(window.location.search);
 
     // Preveri, ali je receptId pravilno nastavljen
     console.log("Recept ID:", receptId);
-  
+      const idupo = 1;
       fetch('http://localhost:8080/api/ocena/save', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-              stZvezdic: parseInt(ocenaSkladnosti, 10),
-              mnenje: mnenje,
-              vprasanje: vprasanje, // Assuming no question is being sent
-              TKrecepta: parseInt(receptId, 10) // Uporabi ID recepta iz URL-ja
-          })
+            stZvezdic: parseInt(ocenaSkladnosti, 10),
+            mnenje: mnenje,
+            vprasanje: vprasanje,
+            TKrecepta: { idrecepta: parseInt(receptId, 10) }, // Wrap in object
+            TKuporabnik: { idUporabnika: parseInt(idupo, 10) } // Wrap in object
+        })
+
       })
       .then(response => {
           if (!response.ok) {

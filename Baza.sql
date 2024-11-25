@@ -33,13 +33,15 @@ CREATE TABLE IF NOT EXISTS Koraki (
 );
 
 CREATE TABLE IF NOT EXISTS Ocena (
-    `idOcena` INT NOT NULL AUTO_INCREMENT,
+    `id_ocena` INT NOT NULL AUTO_INCREMENT,
     `st_zvezdic` INT NOT NULL,
     `mnenje` VARCHAR(100) NOT NULL,
     `vprasanje` VARCHAR(100) NOT NULL,
     `TKrecepta` INT,
-    PRIMARY KEY (`idOcena`),
-    FOREIGN KEY (TKrecepta) REFERENCES Recept (idrecepta)
+    `TKuporabnik` INT,
+    PRIMARY KEY (`id_ocena`),
+    FOREIGN KEY (TKrecepta) REFERENCES Recept (idrecepta),
+    FOREIGN KEY (TKuporabnik) REFERENCES Uporabnik (idUporabnika)
 );
 
 alter table Koraki
@@ -82,3 +84,23 @@ VALUES
 ('Praži panceto do hrustljavosti.', 2, 3),
 ('Zmešaj jajca in sir v posodi.', 3, 3),
 ('Vmešaj kuhane špagete v panceto in dodaj jajčno zmes.', 4, 3);
+
+
+-- Ocene for "Rižota s piščancem" (idrecepta = 1)
+INSERT INTO Ocena (st_zvezdic, mnenje, vprasanje, TKrecepta, TKuporabnik) 
+VALUES 
+(5, 'Zelo okusno, definitivno priporočam!', 'Katera zelišča priporočate za boljši okus?', 1, 1),
+(4, 'Dobro, a malo premalo začinjeno.', 'Katera zelišča priporočate za boljši okus?', 1, 2);
+
+-- Ocene for "Palačinke" (idrecepta = 2)
+INSERT INTO Ocena (st_zvezdic, mnenje, vprasanje, TKrecepta, TKuporabnik) 
+VALUES 
+(5, 'Najboljše palačinke, kar sem jih jedel!', 'Katera zelišča priporočate za boljši okus?', 2, 3),
+(3, 'Dobra osnova, a testo bi lahko bilo bolj rahlo.', 'Ali bi lahko dodali še kako sestavino za rahlost?', 2, 1);
+
+-- Ocene for "Špageti Carbonara" (idrecepta = 3)
+INSERT INTO Ocena (st_zvezdic, mnenje, vprasanje, TKrecepta, TKuporabnik) 
+VALUES 
+(5, 'Pravi italijanski okus, popolno!','Katera zelišča priporočate za boljši okus?', 3, 2),
+(4, 'Zelo dobro, a malo premalo sira za moj okus.', 'Katera zelišča priporočate za boljši okus?', 3, 3),
+(2, 'Preveč slano za moj okus.', 'Ali je možno zmanjšati količino pancete?', 3, 1);
