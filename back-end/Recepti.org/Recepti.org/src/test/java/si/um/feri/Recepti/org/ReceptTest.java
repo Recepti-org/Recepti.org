@@ -56,7 +56,7 @@ public class ReceptTest {
         }
 
 
-    @Test
+    /*@Test
     public void testiram_brisanje() {
         Optional<Recept> recept = dao.findById(0);
 
@@ -65,7 +65,25 @@ public class ReceptTest {
 
         // Then
         assertFalse(dao.existsById(recept.get().getIdrecepta()));
+    }*/
+
+    @Test
+    public void testiram_brisanje2() {
+        // Arrange: Dodajte testne podatke
+        Uporabnik uporabnik = new Uporabnik("Test", "Uporabnik");
+        uporabnikRepo.save(uporabnik);
+        Recept novRecept = new Recept(uporabnik, 4, 15.0, "Test Opis", "Test Recept", "URL");
+        dao.save(novRecept);
+
+        // Act: Poiščite in izbrišite recept
+        Optional<Recept> recept = dao.findById(novRecept.getIdrecepta());
+        assertTrue(recept.isPresent()); // Preverite, ali obstaja
+        dao.delete(recept.get());
+
+        // Assert: Preverite, ali je recept izbrisan
+        assertFalse(dao.existsById(novRecept.getIdrecepta()));
     }
+
 
 }
 

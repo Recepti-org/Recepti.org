@@ -32,6 +32,9 @@ public class Ocena {
     public Ocena() {}
 
     public Ocena(int idOcena, int stZvezdic, String mnenje, String vprasanje, Recept TKrecepta) {
+        if (stZvezdic < 1 || stZvezdic > 5) {
+            throw new IllegalArgumentException("Ocena mora biti med 1 in 5.");
+        }
         this.idOcena = idOcena;
         this.stZvezdic = stZvezdic;
     //public Ocena(int idocena, int stzvezdic, String mnenje, String vprasanje, Recept TKrecepta) {
