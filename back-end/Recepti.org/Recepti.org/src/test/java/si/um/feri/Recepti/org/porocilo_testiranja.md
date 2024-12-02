@@ -4,7 +4,7 @@
 
 V tem testiranju smo preverili delovanje različnih delov aplikacije, povezanih z objekti **Koraki**, **Ocena**, **Recept** in **Uporabnik**. Testi vključujejo inicializacijo objektov, primerjave med objekti, preverjanje validnosti podatkov in testiranje delovanja CRUD operacij.
 
-### 1. Testiranje objekta **Koraki**
+### 1. Testiranje objekta **Koraki** - odgovoren: Aleš Fon Cafnik
 
 Testi, povezani z objektom Koraki, so preverjali pravilno inicializacijo objektov, pravilno delovanje `equals` metode za primerjavo dveh objektov ter preverjanje negativnih primerov, ko objekta nista enaka.
 
@@ -12,7 +12,7 @@ Testi, povezani z objektom Koraki, so preverjali pravilno inicializacijo objekto
 - **Test: Primerjava dveh objektov Koraki** - testirali smo primer, ko sta dva objekta z enakimi atributi enaka.
 - **Test: Neenakost dveh objektov Koraki** - preverili smo, da sta dva objekta z različnimi atributi različna.
 
-### 2. Testiranje objekta **Ocena**
+### 2. Testiranje objekta **Ocena** - odgovoren: Matija Čoh
 
 Testiranje ocene vključuje preverjanje inicializacije objekta, pravilne nastavitve vrednosti ocen, obravnavo neveljavnih vrednosti in testiranje ponavljanja.
 
@@ -23,14 +23,14 @@ Testiranje ocene vključuje preverjanje inicializacije objekta, pravilne nastavi
 - **Test: Ponovljeno testiranje inicializacije Ocena** - večkratno izvajanje istega testa.
 - **Test: Dinamični testi za neveljavne ocene** - preverjanje, da se za napačne ocene vrne napaka.
 
-### 3. Testiranje objekta **Recept**
+### 3. Testiranje objekta **Recept** - odgovoren: Miha Rot
 
 Testi za objekt **Recept** vključujejo preverjanje dodajanja in brisanja receptov ter validnosti podatkov v povezavi z uporabnikom.
 
 - **Testiranje dodajanja recepta** - testirali smo dodajanje recepta v bazo in preverjanje, ali je bil dodan.
 - **Testiranje brisanja recepta** - testirali smo pravilnost brisanja receptov iz baze.
 
-### 4. Testiranje objekta **Uporabnik**
+### 4. Testiranje objekta **Uporabnik** - odgovoren: Matija Čoh
 
 Testi, povezani z uporabnikom, vključujejo preverjanje inicializacije uporabnika in primerjavo dveh uporabnikov.
 
