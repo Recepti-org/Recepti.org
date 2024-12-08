@@ -500,11 +500,37 @@
 
       </div>
 
-      <!-- Modal Button -->
-      <button class="btn btn-primary" id="gumb" style="border-radius: 15px;">Oceni izdelek in postavi vprašanje
-        kuharju!</button>
 
-      <!-- Modal for Rating -->
+      <div class="container mt-5">
+        <div class="card" id="kartica-o-kmetovalcu">
+          <div class="card-header d-flex align-items-center justify-content-between">
+            <span>
+              <i class="fa-solid fa-utensils"></i> Sestavine potrebne za pripravo:
+            </span>
+            <input 
+              type="number" 
+              id="peopleCount" 
+              class="form-control form-control-sm" 
+              style="width: 100px;" 
+              placeholder="Št. oseb" 
+              oninput="receptsestavine()"
+            >
+          </div>
+      
+          <div class="card-body" style="background-color: white;" id="card-body-info-o-kmetovalcu-res">
+            <div class="media">
+              <div class="media-body">
+                <h5 class="mt-0 ml-5"><span id="imeee"></span> <span id="primek"></span></h5>
+                <ul class="list-group list-group-flush mt-3" id="sestavine">
+                </ul>
+              </div>
+            </div>
+          </div>
+          <br>
+        </div>
+      </div>
+      
+    
       <div class="modal fade" id="recipeModal" tabindex="-1" aria-labelledby="recipeModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">

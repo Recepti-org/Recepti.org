@@ -44,6 +44,23 @@ CREATE TABLE IF NOT EXISTS Ocena (
     FOREIGN KEY (TKuporabnik) REFERENCES Uporabnik (idUporabnika)
 );
 
+CREATE TABLE IF NOT EXISTS Sestavina (
+    `idsestavine` INT NOT NULL AUTO_INCREMENT,
+    `ime` VARCHAR(200) NOT NULL,
+    PRIMARY KEY (`idsestavine`)
+);
+
+CREATE TABLE IF NOT EXISTS SestavinaKolicina(
+    `idsestavinakoli` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `kolicina` INT NOT NULL,
+    `enota` VARCHAR(5) NOT NULL,
+    `TK_sestavina` INT NOT NULL,
+    `TK_recepta` INT NOT NULL,
+	FOREIGN KEY (TK_sestavina) REFERENCES Sestavina (idsestavine),
+    FOREIGN KEY (TK_recepta) REFERENCES Recept (idrecepta)
+);
+
+
 alter table Koraki
 add constraint TK_Recept_Korak foreign key (TKrecepta) references Recept (idrecepta);
 
@@ -104,3 +121,28 @@ VALUES
 (5, 'Pravi italijanski okus, popolno!','Katera zelišča priporočate za boljši okus?', 3, 2),
 (4, 'Zelo dobro, a malo premalo sira za moj okus.', 'Katera zelišča priporočate za boljši okus?', 3, 3),
 (2, 'Preveč slano za moj okus.', 'Ali je možno zmanjšati količino pancete?', 3, 1);
+
+
+
+
+INSERT INTO Sestavina (ime) VALUES 
+('Moka'),       -- Flour
+('Sladkor'),    -- Sugar
+('Maslo'),      -- Butter
+('Jajca'),      -- Eggs
+('Sol');        -- Salt
+
+
+INSERT INTO SestavinaKolicina (kolicina, enota, TK_sestavina, TK_recepta) VALUES 
+(200, 'g', 1, 1), -- 200g of "Moka" for Recept ID 1
+(100, 'g', 2, 1), -- 100g of "Sladkor" for Recept ID 1
+(50, 'g', 3, 1),  -- 50g of "Maslo" for Recept ID 1
+(2, 'pcs', 4, 1), -- 2 "Jajca" for Recept ID 1
+(1, 'tsp', 5, 1), -- 1 teaspoon of "Sol" for Recept ID 1
+
+(300, 'g', 1, 2), -- 300g of "Moka" for Recept ID 2
+(150, 'g', 2, 2), -- 150g of "Sladkor" for Recept ID 2
+(100, 'g', 3, 2), -- 100g of "Maslo" for Recept ID 2
+(3, 'pcs', 4, 2), -- 3 "Jajca" for Recept ID 2
+(2, 'tsp', 5, 2); -- 2 teaspoons of "Sol" for Recept ID 2
+

@@ -105,3 +105,11 @@ document.addEventListener('DOMContentLoaded', function () {
         starRatingDiv.appendChild(star);
     }
 });
+
+
+
+
+
+function receptsestavine(){
+    console.log(document.getElementById("peopleCount").value);
+}
