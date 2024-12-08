@@ -1,6 +1,7 @@
 package si.um.feri.Recepti.org.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import si.um.feri.Recepti.org.vao.Sestavina;
@@ -18,8 +19,10 @@ public class SestavinaController {
     // Dobimo vse sestavine
     @GetMapping
     public ResponseEntity<List<Sestavina>> getAllSestavine() {
-        return ResponseEntity.ok(sestavinaRepository.findAll());
+        List<Sestavina> sestavine = sestavinaRepository.findAll(Sort.by(Sort.Order.asc("ime"))); // Sorting by 'ime'
+        return ResponseEntity.ok(sestavine);
     }
+
 
     // Dodaj novo sestavino
     @PostMapping
