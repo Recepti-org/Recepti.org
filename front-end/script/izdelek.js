@@ -1,3 +1,4 @@
+var idrecept;
 document.addEventListener('DOMContentLoaded', function () {
     const urlParams = new URLSearchParams(window.location.search);
     const productId = urlParams.get('id');
@@ -9,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('ime').textContent = `${product.ime}`;
             document.getElementById('cas').textContent = `${product.caspriprave} min`;
             document.getElementById('opis').textContent = `${product.opis}`;
+            idrecept = product.idrecepta;
 
             const myDiv = document.getElementById('slika');
             const newElement = document.createElement('img');
@@ -113,10 +115,8 @@ document.addEventListener('DOMContentLoaded', function () {
 // Function to fetch ingredients and adjust quantities based on the input number of people
 function receptsestavine() {
     const peopleCount = document.getElementById('peopleCount').value;
-    const receptId = 1; // Example: Set this to the actual Recept ID you're working with
-    
     if (peopleCount && peopleCount > 0) {
-        fetch(`http://localhost:8080/api/sestavine-kolicine/recept/${receptId}`)
+        fetch(`http://localhost:8080/api/sestavine-kolicine/recept/${idrecept}`)
             .then(response => response.json())
             .then(data => {
                 // Update the UI with the adjusted ingredient quantities
