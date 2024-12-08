@@ -5,11 +5,12 @@ import lombok.Data;
 
 @Entity
 @Data
+@Table(name = "sestavinakolicina")
 public class SestavinaKolicina {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idsestavinekoli")
-    private int idsestavinekoli;
+    @Column(name = "idsestavinakoli")
+    private int idsestavinakoli;
 
     private int kolicina;
     private String enota;

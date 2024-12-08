@@ -110,6 +110,45 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-function receptsestavine(){
-    console.log(document.getElementById("peopleCount").value);
+// Function to fetch ingredients and adjust quantities based on the input number of people
+function receptsestavine() {
+    const peopleCount = document.getElementById('peopleCount').value;
+    const receptId = 1; // Example: Set this to the actual Recept ID you're working with
+    
+    if (peopleCount && peopleCount > 0) {
+        fetch(`http://localhost:8080/api/sestavine-kolicine/recept/${receptId}`)
+            .then(response => response.json())
+            .then(data => {
+                // Update the UI with the adjusted ingredient quantities
+                updateIngredientList(data, peopleCount);
+            })
+            .catch(error => {
+                console.error('Error fetching ingredient data:', error);
+            });
+    } else {
+        // If no valid number is entered, clear the list or show a default message
+        document.getElementById('sestavine').innerHTML = "<li class='list-group-item'>Please enter a valid number of people.</li>";
+    }
 }
+
+// Function to update the list of ingredients in the UI
+function updateIngredientList(ingredients, peopleCount) {
+    const sestavineList = document.getElementById('sestavine');
+    sestavineList.innerHTML = '';  // Clear any existing items in the list
+
+    if (ingredients.length > 0) {
+        ingredients.forEach(ingredient => {
+            const li = document.createElement('li');
+            li.classList.add('list-group-item');
+
+            // Calculate the adjusted quantity based on the number of people
+            const adjustedKolicina = ingredient.kolicina * peopleCount; // Multiply base quantity by people count
+
+            li.textContent = `${ingredient.tkSestavina.ime}: ${adjustedKolicina} ${ingredient.enota}`;
+            sestavineList.appendChild(li);
+        });
+    } else {
+        sestavineList.innerHTML = "<li class='list-group-item'>No ingredients available.</li>";
+    }
+}
+
