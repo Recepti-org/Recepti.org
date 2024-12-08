@@ -9,7 +9,7 @@ public class Recept {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idrecepta")
-    private int idrecepta;
+    private Integer idrecepta;
 
     private String ime;
     private String opis;
