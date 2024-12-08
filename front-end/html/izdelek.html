@@ -36,6 +36,65 @@
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
   <style>
+    /* Custom styling for the list items */
+    .custom-list-item {
+      background-color: #f8f9fa;
+      border-radius: 5px;
+      margin-bottom: 8px;
+      padding: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    /* Styling for sestavine ul */
+    #sestavine li {
+      font-weight: normal;
+      font-size: 1.2rem;
+      color: #495057; /* Darker gray for better readability */
+      background-color: #f8f9fa; /* Light background for list items */
+      padding: 12px 15px; /* Spacing inside list items */
+      border-radius: 5px; /* Rounded corners */
+      margin-bottom: 8px; /* Space between list items */
+      transition: background-color 0.3s, transform 0.3s ease-in-out; /* Smooth transition for hover effects */
+    }
+
+    /* Hover effect to highlight list items */
+    #sestavine li:hover {
+      background-color: #e2e6ea; /* Lighter background on hover */
+      transform: scale(1.02); /* Slight scale effect to make it pop */
+    }
+
+    /* Styling for first-level items (emphasis on ingredients) */
+    #sestavine li span.ingredient-name {
+      font-weight: bold; /* Bold for the ingredient name */
+      color: #007bff; /* Blue for emphasis */
+    }
+
+    /* Styling for quantity and unit */
+    #sestavine li span.quantity {
+      font-style: italic; /* Italics for quantity */
+      color: #28a745; /* Green for the quantity */
+    }
+
+    /* Additional padding for last item (optional for aesthetic spacing) */
+    #sestavine li:last-child {
+      margin-bottom: 0; /* Removes the bottom margin for the last item */
+    }
+
+
+    /* Add spacing between name and surname */
+    #imeee + #primek {
+      margin-left: 5px;
+    }
+
+    .custom-list-item:hover {
+      background-color: #e2e6ea;
+    }
+
+    .custom-list-item + .custom-list-item {
+      margin-top: 4px; /* Adds space between items */
+    }
+
+
     .checked {
       color: #fde16d;
     }
@@ -501,6 +560,38 @@
       </div>
 
       <div class="container mt-5">
+        <div class="card" id="kartica-o-kmetovalcu" style="border-radius: 10px; box-shadow: 0 4px 8px #f7f3e6;">
+          <div class="card-header d-flex align-items-center justify-content-between" style="background-color: #f7f3e6; border-bottom: 2px solid #ddd; border-radius: 10px 10px 0 0;">
+            <span style="font-weight: bold; font-size: 1rem;">
+              <i class="fa-solid fa-utensils" style="color: #6c757d;"></i> Sestavine potrebne za pripravo:
+            </span>
+            <input 
+              type="number" 
+              id="peopleCount" 
+              class="form-control form-control-sm" 
+              style="width: 100px; border-radius: 5px; font-size: 0.9rem;" 
+              placeholder="Št. oseb" 
+              oninput="receptsestavine()"
+            >
+          </div>
+          
+          <div class="card-body" style="background-color: white; border-radius: 0 0 10px 10px;" id="card-body-info-o-kmetovalcu-res">
+            <div class="media">
+              <div class="media-body">
+                <h5 class="mt-0 ml-5" style="font-size: 1.2rem; color: #343a40;">
+                  <span id="imeee"></span> <span id="primek"></span>
+                </h5>
+                <ul class="list-group list-group-flush mt-3" id="sestavine" style="font-size: 1rem; color: #6c757d;">
+                </ul>
+              </div>
+            </div>
+          </div>
+          <br>
+        </div>
+      </div>
+      
+
+      <!--div class="container mt-5">
         <div class="card" id="kartica-o-kmetovalcu">
           <div class="card-header d-flex align-items-center justify-content-between">
             <span>
@@ -527,7 +618,7 @@
           </div>
           <br>
         </div>
-      </div>
+      </div-->
       
     
       <div class="modal fade" id="recipeModal" tabindex="-1" aria-labelledby="recipeModalLabel" aria-hidden="true">
