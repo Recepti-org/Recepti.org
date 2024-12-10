@@ -25,11 +25,10 @@ Razviti sistem za analizo pogostosti uporabe sestavin na podlagi zgodovine recep
 
 ### **Naloge (Issues)**
 
-#### **1. Priprava podatkovne baze**
+#### **Analiza zahteve**
 
-- **Ustvari entiteto za zgodovino receptov**
-- **Posodobi obstoječe entitete in relacije**
-  - _Točke_: 3
+- **Lociranje umestitve nove funkcionalnosti v aplikacijo**
+  - _Točke_: 1
   - _Prioriteta_: Visoka
 
 #### **2. Pridobivanje zgodovine receptov**
