@@ -137,7 +137,7 @@ INSERT INTO SestavinaKolicina (kolicina, enota, TK_sestavina, TK_recepta) VALUES
 (200, 'g', 1, 1), -- 200g of "Moka" for Recept ID 1
 (100, 'g', 2, 1), -- 100g of "Sladkor" for Recept ID 1
 (50, 'g', 3, 1),  -- 50g of "Maslo" for Recept ID 1
-(2, 'pcs', 4, 1), -- 2 "Jajca" for Recept ID 1
+(2, 'pcs', 4, 1), -- 2 "Jajca" for Recept ID 1 
 (1, 'tsp', 5, 1), -- 1 teaspoon of "Sol" for Recept ID 1
 
 (300, 'g', 1, 2), -- 300g of "Moka" for Recept ID 2

@@ -32,10 +32,14 @@ function displayRecipes() {
             return response.json(); // Parse JSON data from the response
         })
         .then(data => {
+            console.log(data)
             najaciindex = data; // Store the fetched data in the global array
             najaciindex.forEach(product => {
                 container.innerHTML += createRecipeCard(product); // Append each recipe card
             });
+            
+            najpogostejsasestavina(data);
+
         })
         .catch(error => {
             console.error('Error loading product data:', error);
@@ -133,3 +137,56 @@ function removeRecipe(idrecepta) {
 
 // Call displayRecipes on page load
 document.addEventListener('DOMContentLoaded', displayRecipes);
+
+
+function najpogostejsasestavina(recepti) {
+    const stevilostestavine = {}; // Object to store sestavina counts
+
+    // Use Promise.all to wait for all fetch calls to complete
+    const fetchPromises = recepti.map(recept => {
+        let id = recept.idrecepta;
+
+        return fetch(`http://localhost:8080/api/sestavine-kolicine/recept/${id}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok: ' + response.statusText);
+                }
+                return response.json(); // Parse JSON data from the response
+            })
+            .then(data => {
+                data.forEach(sestavina => {
+                    const ime = sestavina.tkSestavina.ime;
+                    if (stevilostestavine[ime]) {
+                        stevilostestavine[ime] += 1;
+                    } else {
+                        stevilostestavine[ime] = 1;
+                    }
+                });
+            })
+            .catch(error => {
+                console.error('Error loading sestavina data:', error);
+            });
+    });
+
+    Promise.all(fetchPromises).then(() => {
+        let mostUsedsestavina = null;
+        let najveckrat = 0;
+
+        for (const [sestavina, stevilo] of Object.entries(stevilostestavine)) {
+            if (stevilo > najveckrat) {
+                mostUsedsestavina = sestavina;
+                najveckrat = stevilo;
+            }
+        }
+
+        // Display all sestavinas and their counts
+        const sestavinaList = Object.entries(stevilostestavine)
+            .map(([sestavina, stevilo]) => {
+                const style = sestavina === mostUsedsestavina ? 'style="text-decoration: underline; font-weight: bold;"' : '';
+                return `<li ${style}>${sestavina}: ${stevilo} krat</li>`;
+            })
+            .join('');
+
+        document.getElementById("sestavina").innerHTML = `<ul style=" list-style: none;">${sestavinaList}</ul>`;
+    });
+}
