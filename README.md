@@ -130,28 +130,28 @@ platforma podpira ustvarjalnost ter pomaga uporabnikom obogatiti njihove kulinar
 
 ## Besednjak
 
-| **Beseda**                 | **Definicija**                                                                                                                                                                                                                                                                                                                                                                    |
-| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Registracija**           | Postopek, s katerim uporabnik ustvari nov račun v sistemu. Vključuje vnos naslednjih osebnih podatkov: ime, priimek, datum rojstva, naslov, uporabniško ime (elektronski naslov), geslo. Ti podatki omogočajo kasnejši dostop do funkcionalnosti spletne strani/aplikacije.                                                                                                       |
-| **Prijava**                | Postopek dostopa do osebnega računa z vnosom uporabniškega imena in gesla, ki omogoča uporabo funkcij, dostopnih le registriranim uporabnikom, kot so dodajanje, iskanje, spreminjanje receptov ipd.                                                                                                                                                                              |
-| **Odjava**                 | Postopek, s katerim se uporabnik odjavi iz svojega računa, da zaključi sejo in prepreči dostop do osebnih podatkov ter upravljanje njegovih receptov s strani drugih uporabnikov ali naprav.                                                                                                                                                                                      |
-| **Recept**                 | Navodila za pripravo določene jedi, ki vključujejo seznam sestavin, čas priprave, težavnost priprave in natančne korake priprave, da lahko uporabnik pripravi obrok po predpisanem postopku.                                                                                                                                                                                      |
-| **Težavnost**              | Stopnja zahtevnosti recepta, ki označuje, koliko znanja, spretnosti in časa je potrebnega za pripravo jedi. Označena je s številom zvezdic med 1 in 5, pri čemer velja: 1 = za začetnike, 2 = enostavno, 3 = srednje zahtevno, 4 = zahtevno, 5 = za profesionalce.                                                                                                                |
-| **Priporočeno**            | Seznam ali oznaka, ki naključno prikazuje recepte iz baze, ne glede na priljubljenost ali osebne preference uporabnika. Namenjen je odkrivanju novih, naključno izbranih receptov, ki jih uporabnik morda sicer ne bi opazil.                                                                                                                                                     |
-| **Sestavine**              | Seznam potrebnih živil in začimb, ki jih mora uporabnik imeti za pripravo določene jedi v skladu z receptom.                                                                                                                                                                                                                                                                      |
-| **Korak**                  | Posamezno navodilo v sklopu priprave recepta, ki ga je treba izvesti, da bi se jed uspešno pripravila.                                                                                                                                                                                                                                                                            |
-| **Postopek priprave jedi** | Seznam vseh korakov dodanih v recept, kot so priprava sestavin, kuhanje, pečenje ali druga opravila, potrebna za dokončanje jedi.                                                                                                                                                                                                                                                 |
-| **Čas priprave**           | Časovni okvir izražen v minutah (min), potreben za pripravo recepta, ki vključuje celoten čas kuhanja in pripravljanja sestavin, da je jed popolnoma pripravljena za postrežbo.                                                                                                                                                                                                   |
-| **Kategorija**             | Razvrstitev receptov glede na vrsto jedi in sicer: glavne jedi, sladice in juhe. Olajša iskanje specifičnih vrst receptov.                                                                                                                                                                                                                                                        |
-| **Juha**                   | Jedi, pripravljene z osnovo iz tekočine, kot je voda ali jušna osnova, pogosto vsebujejo zelenjavo, meso ali ribe ter začimbe, ki ustvarijo okusno, običajno toplo jed.                                                                                                                                                                                                           |
-| **Sladica**                | Jedi, ki so običajno sladke in postrežene ob koncu obroka, kot so peciva, torte, piškoti ali sadne jedi.                                                                                                                                                                                                                                                                          |
-| **Glavna jed**             | Osrednji del obroka, ki se običajno pripravlja za kosilo in ga sestavljajo beljakovinske in škrobnate komponente, kot so meso, ribe, testenine, riž, zelenjava ipd.                                                                                                                                                                                                               |
-| **Profil**                 | Osebni račun uporabnika, kjer so shranjeni vsi njegovi podatki, ki jih je vnesel ob registraciji, in priljubljeni recepti, s katerimi si uporabnik prilagodi izkušnjo uporabe aplikacije.                                                                                                                                                                                         |
+| **Beseda**                 | **Definicija**                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Registracija**           | Postopek, s katerim uporabnik ustvari nov račun v sistemu. Vključuje vnos naslednjih osebnih podatkov: ime, priimek, datum rojstva, naslov, uporabniško ime (elektronski naslov), geslo. Ti podatki omogočajo kasnejši dostop do funkcionalnosti spletne strani/aplikacije.                                                                                                                                                                  |
+| **Prijava**                | Postopek dostopa do osebnega računa z vnosom uporabniškega imena in gesla, ki omogoča uporabo funkcij, dostopnih le registriranim uporabnikom, kot so dodajanje, iskanje, spreminjanje receptov ipd.                                                                                                                                                                                                                                         |
+| **Odjava**                 | Postopek, s katerim se uporabnik odjavi iz svojega računa, da zaključi sejo in prepreči dostop do osebnih podatkov ter upravljanje njegovih receptov s strani drugih uporabnikov ali naprav.                                                                                                                                                                                                                                                 |
+| **Recept**                 | Navodila za pripravo določene jedi, ki vključujejo seznam sestavin, čas priprave, težavnost priprave in natančne korake priprave, da lahko uporabnik pripravi obrok po predpisanem postopku.                                                                                                                                                                                                                                                 |
+| **Težavnost**              | Stopnja zahtevnosti recepta, ki označuje, koliko znanja, spretnosti in časa je potrebnega za pripravo jedi. Označena je s številom zvezdic med 1 in 5, pri čemer velja: 1 = za začetnike, 2 = enostavno, 3 = srednje zahtevno, 4 = zahtevno, 5 = za profesionalce.                                                                                                                                                                           |
+| **Priporočeno**            | Seznam ali oznaka, ki naključno prikazuje recepte iz baze, ne glede na priljubljenost ali osebne preference uporabnika. Namenjen je odkrivanju novih, naključno izbranih receptov, ki jih uporabnik morda sicer ne bi opazil.                                                                                                                                                                                                                |
+| **Sestavine**              | Seznam potrebnih živil in začimb, ki jih mora uporabnik imeti za pripravo določene jedi v skladu z receptom.                                                                                                                                                                                                                                                                                                                                 |
+| **Korak**                  | Posamezno navodilo v sklopu priprave recepta, ki ga je treba izvesti, da bi se jed uspešno pripravila.                                                                                                                                                                                                                                                                                                                                       |
+| **Postopek priprave jedi** | Seznam vseh korakov dodanih v recept, kot so priprava sestavin, kuhanje, pečenje ali druga opravila, potrebna za dokončanje jedi.                                                                                                                                                                                                                                                                                                            |
+| **Čas priprave**           | Časovni okvir izražen v minutah (min), potreben za pripravo recepta, ki vključuje celoten čas kuhanja in pripravljanja sestavin, da je jed popolnoma pripravljena za postrežbo.                                                                                                                                                                                                                                                              |
+| **Kategorija**             | Razvrstitev receptov glede na vrsto jedi in sicer: glavne jedi, sladice in juhe. Olajša iskanje specifičnih vrst receptov.                                                                                                                                                                                                                                                                                                                   |
+| **Juha**                   | Jedi, pripravljene z osnovo iz tekočine, kot je voda ali jušna osnova, pogosto vsebujejo zelenjavo, meso ali ribe ter začimbe, ki ustvarijo okusno, običajno toplo jed.                                                                                                                                                                                                                                                                      |
+| **Sladica**                | Jedi, ki so običajno sladke in postrežene ob koncu obroka, kot so peciva, torte, piškoti ali sadne jedi.                                                                                                                                                                                                                                                                                                                                     |
+| **Glavna jed**             | Osrednji del obroka, ki se običajno pripravlja za kosilo in ga sestavljajo beljakovinske in škrobnate komponente, kot so meso, ribe, testenine, riž, zelenjava ipd.                                                                                                                                                                                                                                                                          |
+| **Profil**                 | Osebni račun uporabnika, kjer so shranjeni vsi njegovi podatki, ki jih je vnesel ob registraciji, in priljubljeni recepti, s katerimi si uporabnik prilagodi izkušnjo uporabe aplikacije.                                                                                                                                                                                                                                                    |
 | **Ocena**                  | Številska in besedna vrednost, ki jo uporabnik dodeli receptu, da izrazi svoje zadovoljstvo z jedjo ali kakovost recepta. Ocene so prikazane kot število zvezdic med 1 in 5, kjer višja ocena predstavlja višje zadovoljstvo in kakovost recepta. Prikazane pa so z mnenjem uporabnika o receptu. Ocene pripomorejo k boljšemu razvrščanju receptov glede na priljubljenost in uporabnikom omogočajo, da hitreje najdejo kakovostne recepte. |
 
 ## Diagram primera uporabe
-   ![Use case](./front-end/images/Posnetek%20zaslona%202024-11-11%20184747.png)
 
+![Use case](./front-end/images/Posnetek%20zaslona%202024-11-11%20184747.png)
 
 1.  Ogled vseh receptov:
     Uporabnik lahko pregleda vse razpoložljive recepte v aplikaciji. Na voljo ima dodatni možnosti filtriranja po priporočeno in iskanja po vnosu, ki omogočata bolj specifično iskanje receptov.
@@ -277,7 +277,7 @@ platforma podpira ustvarjalnost ter pomaga uporabnikom obogatiti njihove kulinar
 
 **Alternativni tokovi:**
 
-- Noben.
+- preračunavanje količin sestavin glede na število porcij - kar izbere uporabnik z vnosom števila porcij v polje.
 
 **Izjeme:**
 Če recepta ni mogoče naložiti, sistem prikaže obvestilo o napaki.
@@ -541,16 +541,19 @@ platforma podpira ustvarjalnost ter pomaga uporabnikom obogatiti njihove kulinar
 Če uporabnik še ni dodal mnenja za ta recept, sistem prikaže obvestilo, da mnenje ni na voljo za urejanje.
 
 # Class Diagram
-   ![Class Diagram](./front-end/images/Recepti.org_ClassDiagram_v2.png)
+
+![Class Diagram](./front-end/images/Recepti.org_ClassDiagram_v2.png)
 
 ## Namen Razredov in Ključne Metode
 
 ### Podatkovne entitete:
 
 ### Koraki
+
 **Namen:** Predstavlja posamezni korak priprave recepta, vključno z njegovim opisom, zaporedjem in pripadnostjo receptu.
 
 **Ključne metode:**
+
 - `toString()`: Pretvori korak v niz, kar omogoča lažje prikazovanje podatkov v uporabniškem vmesniku ali logih.
 - `equals(Object)`: Primerja dva koraka za enakost na podlagi njihovih atributov.
 - `hashCode()`: Ustvari enoličen identifikator za objekt, ki se uporablja v strukturah, kot so zbirke.
@@ -558,9 +561,11 @@ platforma podpira ustvarjalnost ter pomaga uporabnikom obogatiti njihove kulinar
 **Naloge:** Zagotavljajo osnovne operacije za primerjavo, identifikacijo in prikaz korakov receptov.
 
 ### Recept
+
 **Namen:** Shranjuje podatke o receptu, vključno z avtorjem, težavnostjo, opisom, sliko in časom priprave.
 
 **Ključne metode:**
+
 - `toString()`: Pretvori recept v niz, kar omogoča lažje razhroščevanje in prikaz podatkov.
 - `equals(Object)`: Primerja dva recepta glede na njihove atribute, kot je ID.
 - `hashCode()`: Generira unikatni identifikator recepta za uporabo v zbirkah.
@@ -568,9 +573,11 @@ platforma podpira ustvarjalnost ter pomaga uporabnikom obogatiti njihove kulinar
 **Naloge:** Podpirajo identifikacijo, primerjavo in prikaz receptov ter so osnova za druge metode upravljanja z recepti.
 
 ### Uporabnik
+
 **Namen:** Predstavlja uporabnika sistema, ki lahko ustvarja recepte.
 
 **Ključne metode:**
+
 - `toString()`: Pretvori podatke o uporabniku v niz.
 - `equals(Object)`: Preveri, ali sta dva uporabnika enaka.
 - `hashCode()`: Generira unikatni identifikator za uporabnika.
@@ -578,9 +585,11 @@ platforma podpira ustvarjalnost ter pomaga uporabnikom obogatiti njihove kulinar
 **Naloge:** Omogočajo enostavno identifikacijo, primerjavo in prikaz uporabniških podatkov.
 
 ### Ocena
+
 **Namen:** Zabeleži oceno recepta, ki jo lahko uporabnik pusti, in omogoča podrobnosti, kot so število zvezdic, komentar in povezava z določenim receptom.
 
 **Ključne metode:**
+
 - `toString()`: Pretvori oceno v berljiv niz.
 - `equals(Object)`: Primerja dve oceni na podlagi njihovih atributov.
 - `hashCode()`: Ustvari identifikator za oceno, uporaben pri shranjevanju v zbirkah.
@@ -592,18 +601,22 @@ platforma podpira ustvarjalnost ter pomaga uporabnikom obogatiti njihove kulinar
 ### Kontrolerji:
 
 ### KorakiController
+
 **Namen:** Upravljati logiko povezano s koraki receptov, kot so dodajanje, pridobivanje in urejanje korakov.
 
 **Ključne metode:**
+
 - `getRecept(int)`: Pridobi vse korake, povezane z določenim receptom.  
   **Naloga:** Omogoča prikaz korakov uporabnikom in povezavo korakov z receptom.
 - `postKorak(Koraki)`: Doda nov korak receptu.  
   **Naloga:** Ustvari nove korake za obstoječe recepte.
 
 ### ReceptController
+
 **Namen:** Upravljati logiko povezano z recepti, vključno s pridobivanjem, ustvarjanjem, posodabljanjem in brisanjem receptov.
 
 **Ključne metode:**
+
 - `getRecept(int)`: Pridobi recept po ID-ju.  
   **Naloga:** Uporabniku omogoči ogled določenega recepta.
 - `postRecept(Recept)`: Doda nov recept v sistem.  
@@ -616,9 +629,11 @@ platforma podpira ustvarjalnost ter pomaga uporabnikom obogatiti njihove kulinar
   **Naloga:** Izboljša uporabniško izkušnjo z omogočanjem hitrega iskanja.
 
 ### UporabnikController
+
 **Namen:** Upravljati logiko, povezano z uporabniki in njihovimi recepti, vključno z iskanjem receptov določenega uporabnika.
 
 **Ključne metode:**
+
 - `getReceptiByUporabnik(int)`: Pridobi vse recepte, ki jih je ustvaril določen uporabnik.  
   **Naloga:** Prikaz vsebine, povezane z določenim avtorjem.
 - `getRecept(int)`: Pridobi podatke o uporabniku.  
@@ -627,9 +642,11 @@ platforma podpira ustvarjalnost ter pomaga uporabnikom obogatiti njihove kulinar
   **Naloga:** Preverjanje povezav in dostopa do podatkov.
 
 ### OcenaController
+
 **Namen:** Upravljati logiko za dodajanje, urejanje in pridobivanje ocen za recepte.
 
 **Ključne metode:**
+
 - `getOcene(int)`: Pridobi seznam ocen za določen recept.  
   **Naloga:** Omogoča pregled povratnih informacij o receptu.
 - `postOcena(Ocena)`: Doda novo oceno za recept.  
@@ -642,83 +659,102 @@ platforma podpira ustvarjalnost ter pomaga uporabnikom obogatiti njihove kulinar
 ### Repozitoriji:
 
 ### KorakiRepository
+
 **Namen:** Omogočiti dostop do podatkov, povezanih s koraki receptov.
 
 **Ključne metode:**
+
 - `findByTKrecepta(Recept)`: Pridobi seznam korakov, ki pripadajo določenemu receptu.  
   **Naloga:** Povezovanje korakov z receptom in zagotavljanje podatkov za kontrolerje.
 
 ### ReceptRepository
+
 **Namen:** Omogočiti dostop do podatkov o receptih, vključno z iskanjem po uporabniku ali ključnih besedah.
 
 **Ključne metode:**
+
 - `findByUporabnik(Uporabnik)`: Pridobi recepte, ki jih je ustvaril določen uporabnik.  
   **Naloga:** Omogoča prikaz avtorjevih receptov.
 - `searchByKeyword(String)`: Poišče recepte glede na ključne besede.  
   **Naloga:** Iskanje receptov po opisih, imenih ali drugih atributih.
 
 ### OcenaRepository
+
 **Namen:** Omogočiti dostop do podatkov o ocenah receptov.
 
 **Ključne metode:**
+
 - `findByTKrecepta(Recept)`: Pridobi vse ocene, ki so povezane z določenim receptom.  
   **Naloga:** Omogoča analiziranje in prikaz povratnih informacij.
 
 ### UporabnikRepository
+
 **Namen:** Omogočiti dostop do podatkov o uporabnikih.
 **Ključne metode:**
+
 - ni definiranih metod
 
-# Dokumentacija za funkcionalnost dodajanja ocen, mnenj in vprašanj  
+# Dokumentacija za funkcionalnost dodajanja ocen, mnenj in vprašanj
 
-## Implementirana funkcionalnost  
-V aplikacijo smo dodali funkcionalnost, ki uporabnikom omogoča:  
-- **Dodajanje ocen** za recepte.  
-- **Dodajanje mnenj** za recepte.  
-- **Postavljanje vprašanj** avtorju recepta.  
+## Implementirana funkcionalnost
+
+V aplikacijo smo dodali funkcionalnost, ki uporabnikom omogoča:
+
+- **Dodajanje ocen** za recepte.
+- **Dodajanje mnenj** za recepte.
+- **Postavljanje vprašanj** avtorju recepta.
 
 ---
-# Opis delovanja funkcionalnosti ocenjevanja receptov 
 
-### Dodajanje ocen  
-- Uporabnik lahko doda oceno za recept, tako da izbere vrednost od 1 do 5 zvezdic.  
-- Ocena se shrani v sistem in posodobi povprečno oceno recepta.  
+# Opis delovanja funkcionalnosti ocenjevanja receptov
 
-### Dodajanje mnenj  
-- Uporabnik lahko napiše mnenje o receptu, ki vključuje njegovo izkušnjo, nasvete ali opažanja.  
-- Ob oddaji mnenja uporabnik avtorju recepta postavi dodatno vprašanje.  
+### Dodajanje ocen
 
-### Postavljanje vprašanj  
-- Ob dodajanju mnenja uporabnik vnese vprašanje za avtorja recepta.  
-- Vprašanje se posreduje avtorju recepta, ki lahko odgovori prek aplikacije.  
-- Vprašanja in odgovori so prikazani na strani recepta, da so dostopni tudi drugim uporabnikom.  
+- Uporabnik lahko doda oceno za recept, tako da izbere vrednost od 1 do 5 zvezdic.
+- Ocena se shrani v sistem in posodobi povprečno oceno recepta.
 
-## Preizkušanje funkcionalnosti  
+### Dodajanje mnenj
 
-### Koraki za dodajanje ocen  
-1. Prijavite se v aplikacijo z veljavnim uporabniškim računom.  
-2. Na strani izbranega recepta poiščite sekcijo za ocenjevanje.  
-3. Izberite želeno število zvezdic (od 1 do 5) in kliknite **"Oddaj oceno"**.  
-4. Sistem prikaže obvestilo o uspešno oddani oceni, povprečna ocena recepta pa se posodobi.  
+- Uporabnik lahko napiše mnenje o receptu, ki vključuje njegovo izkušnjo, nasvete ali opažanja.
+- Ob oddaji mnenja uporabnik avtorju recepta postavi dodatno vprašanje.
 
-### Koraki za dodajanje mnenj  
-1. Prijavite se v aplikacijo.  
-2. Na strani izbranega recepta poiščite sekcijo za dodajanje mnenja.  
-3. Vnesite svoje mnenje v besedilno polje.  
-4. Vnesite vprašanje za avtorja recepta v dodatno polje.  
-5. Kliknite **"Shrani vašo oceno"**.  
-6. Sistem prikaže obvestilo o uspešnem dodajanju mnenja in vprašanja.  
+### Postavljanje vprašanj
 
-### Koraki za pregled vprašanj in odgovorov  
-1. Na strani recepta poiščite sekcijo **"Vprašanja in odgovori"**.  
-2. Preberite vprašanja in odgovore drugih uporabnikov.  
+- Ob dodajanju mnenja uporabnik vnese vprašanje za avtorja recepta.
+- Vprašanje se posreduje avtorju recepta, ki lahko odgovori prek aplikacije.
+- Vprašanja in odgovori so prikazani na strani recepta, da so dostopni tudi drugim uporabnikom.
 
-## Dostop do funkcionalnosti v aplikaciji  
-- Funkcionalnost dodajanja ocen, mnenj in vprašanj je na voljo vsem prijavljenim uporabnikom.  
-- Sekcije za ocenjevanje, mnenja in vprašanja so dostopne na strani posameznega recepta.  
+## Preizkušanje funkcionalnosti
 
-## Povečana interaktivnost  
-Ta razširjena funkcionalnost izboljšuje interaktivnost aplikacije in omogoča neposredno komunikacijo med uporabniki ter avtorji receptov, kar bogati uporabniško izkušnjo.  
+### Koraki za dodajanje ocen
+
+1. Prijavite se v aplikacijo z veljavnim uporabniškim računom.
+2. Na strani izbranega recepta poiščite sekcijo za ocenjevanje.
+3. Izberite želeno število zvezdic (od 1 do 5) in kliknite **"Oddaj oceno"**.
+4. Sistem prikaže obvestilo o uspešno oddani oceni, povprečna ocena recepta pa se posodobi.
+
+### Koraki za dodajanje mnenj
+
+1. Prijavite se v aplikacijo.
+2. Na strani izbranega recepta poiščite sekcijo za dodajanje mnenja.
+3. Vnesite svoje mnenje v besedilno polje.
+4. Vnesite vprašanje za avtorja recepta v dodatno polje.
+5. Kliknite **"Shrani vašo oceno"**.
+6. Sistem prikaže obvestilo o uspešnem dodajanju mnenja in vprašanja.
+
+### Koraki za pregled vprašanj in odgovorov
+
+1. Na strani recepta poiščite sekcijo **"Vprašanja in odgovori"**.
+2. Preberite vprašanja in odgovore drugih uporabnikov.
+
+## Dostop do funkcionalnosti v aplikaciji
+
+- Funkcionalnost dodajanja ocen, mnenj in vprašanj je na voljo vsem prijavljenim uporabnikom.
+- Sekcije za ocenjevanje, mnenja in vprašanja so dostopne na strani posameznega recepta.
+
+## Povečana interaktivnost
+
+Ta razširjena funkcionalnost izboljšuje interaktivnost aplikacije in omogoča neposredno komunikacijo med uporabniki ter avtorji receptov, kar bogati uporabniško izkušnjo.
 
 ---
 
