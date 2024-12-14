@@ -75,7 +75,7 @@ VALUES
 INSERT INTO Recept (Ime, Opis, tezavnost, caspriprave, slika, TK_Uporabnik)
 VALUES 
 ('Rižota s piščancem', 'Okusna piščančja rižota', 2, 35.5, 'Rizota-s-piscancem-in-zelenjavo-500x375.jpg', 1),
-('Palačinke', 'Mehke palačinke', 1, 20.0, 'palacinke.jpg', 2),
+('Palačinke', 'Mehke palačinke', 1, 20.0, 'palacinke.jpg', 1),
 ('Špageti Carbonara', 'Tradicionalni italijanski špageti', 3, 40.0, 'karbonara.jpg', 3);
 
 
