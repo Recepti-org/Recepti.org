@@ -24,6 +24,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Noticia+Text:ital,wght@0,400;0,700;1,400;1,700&display=swap"
     rel="stylesheet">
 
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    rel="stylesheet"
+  />
+  
+
   <style>
     .card {
       width: 100%;
@@ -221,15 +227,15 @@
 
 <div class="container mt-5 p-sm-7 p-md-3 p-lg-3">
   <br>
-  <div class="row mt-4 pt-5 p-4 mt-4" style="border-radius: 25px; padding: 0px; background-color: #fcf3ca7f;"
-  id="priporoceni-recepti">
-    <h3>Priporočamo:</h3>
-        <ul id="priporoceni-recepti-list" class="ml-5">
-          <!-- priporočeni recepti -->
-        </ul>
+  <div class="row mt-4 pt-5 p-4 mt-4" style="border-radius: 25px; padding: 0px; background-color: #fcf3ca7f;" id="priporoceni-recepti">
+    <h3 class="mb-4">Priporočamo:</h3>
+    <div class="row" id="priporoceni-recepti-list">
+      <!-- Cards will be dynamically added here -->
+    </div>
   </div>
   <br>
 </div>
+
 
   <!-- Popup -->
   <div class="modal fade" id="recipeModal" tabindex="-1" aria-labelledby="recipeModalLabel" aria-hidden="true">

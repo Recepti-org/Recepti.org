@@ -76,7 +76,9 @@ INSERT INTO Recept (Ime, Opis, tezavnost, caspriprave, slika, TK_Uporabnik)
 VALUES 
 ('Rižota s piščancem', 'Okusna piščančja rižota', 2, 35.5, 'Rizota-s-piscancem-in-zelenjavo-500x375.jpg', 1),
 ('Palačinke', 'Mehke palačinke', 1, 20.0, 'palacinke.jpg', 1),
-('Špageti Carbonara', 'Tradicionalni italijanski špageti', 3, 40.0, 'karbonara.jpg', 3);
+('Špageti Carbonara', 'Tradicionalni italijanski špageti', 3, 40.0, 'karbonara.jpg', 3),
+('Zelenjavna lazanja', 'Sveža lazanja z zelenjavo in parmezanom', 2, 50.0, 'zelenjavna-lazanja.jpg', 3),
+('Čokoladna torta', 'Sočna čokoladna torta s prelivom', 3, 90.0, 'cokoladna-torta.jpg', 3);
 
 
 -- Koraki za "Rižota s piščancem" (idrecepta = 1)
@@ -101,6 +103,24 @@ VALUES
 ('Praži panceto do hrustljavosti.', 2, 3),
 ('Zmešaj jajca in sir v posodi.', 3, 3),
 ('Vmešaj kuhane špagete v panceto in dodaj jajčno zmes.', 4, 3);
+
+INSERT INTO Koraki (opis, stkoraka, TKrecepta) 
+VALUES 
+('Segrej pečico na 180 °C.', 1, 4),
+('V ponvi segrej olje in prepraži čebulo ter česen.', 2, 4),
+('Dodaj narezan korenček, bučke in papriko ter praži.', 3, 4),
+('Primešaj paradižnikovo omako in začini po okusu.', 4, 4),
+('V pekač izmenično polagaj plasti testenin, zelenjavne omake in sira.', 5, 4),
+('Zaključi s plastjo sira in peci v pečici 40 minut.', 6, 4);
+
+INSERT INTO Koraki (opis, stkoraka, TKrecepta) 
+VALUES 
+('Segrej pečico na 180 °C.', 1, 5),
+('V skledi zmešaj moko, kakav v prahu, pecilni prašek in sol.', 2, 5),
+('V drugi skledi zmešaj sladkor, jajca, mleko in stopljeno maslo.', 3, 5),
+('Postopoma dodaj suhe sestavine in mešaj, dokler ni masa gladka.', 4, 5),
+('Maso vlij v pekač in peci 35 minut.', 5, 5),
+('Ohladi torto in premaži z glazuro ali čokoladnim prelivom.', 6, 5);
 
 
 -- Ocene for "Rižota s piščancem" (idrecepta = 1)
@@ -139,16 +159,25 @@ INSERT INTO Sestavina (ime) VALUES
 ('Hamburška slanina'),
 ('Smetana'),
 ('Mleko'),
-('Voda');
+('Voda'),
+('Čebula'),         -- Onion
+('Česen'),          -- Garlic
+('Bučke'),          -- Zucchini
+('Korenček'),       -- Carrot
+('Nariban sir'),    -- Grated cheese
+('Kakav v prahu'),  -- Cocoa powder
+('Pecilni prašek'), -- Baking powder
+('Čokoladna glazura'); -- Chocolate glaze
+
 
 
 INSERT INTO SestavinaKolicina (kolicina, enota, TK_sestavina, TK_recepta) VALUES 
 (200, 'g', 7, 1), -- 200g of "Piščanec" for Recept ID 1
-(400, 'g', 9, 1),  -- 400g of "Riž" for Recept ID 1
-(2, 'pcs', 4, 1), -- 2 "Paprika" for Recept ID 1 
+(400, 'g', 8, 1),  -- 400g of "Riž" for Recept ID 1
+(2, 'pcs', 9, 1), -- 2 "Paprika" for Recept ID 1 
 (3, 'psc', 6, 1),	-- 4 "Paradižnik" for Recept ID 1
-(1, 'psc', 4, 1),
 (0.5, 'L', 14, 1), -- 0.5L "Voda" for Recept ID 1
+(3, 'pcs', 4, 1), -- 3 "Jajca" for Recept ID 1
 (3, 'pcs', 4, 1), -- 3 "Jajca" for Recept ID 1
 
 (300, 'g', 1, 2), -- 300g of "Moka" for Recept ID 2
@@ -164,5 +193,24 @@ INSERT INTO SestavinaKolicina (kolicina, enota, TK_sestavina, TK_recepta) VALUES
 (200, 'mL', 12, 3),
 (150, 'g', 1, 3),
 (100, 'g', 3, 3), -- 100g of "Maslo" for Recept ID 3
-(2, 'pcs', 4, 3); -- 3 "Jajca" for Recept ID 3
+(2, 'pcs', 4, 3), -- 3 "Jajca" for Recept ID 3
+
+(2, 'pcs', 15, 4),  -- 2 "Čebula" for Recept ID 4
+(3, 'pcs', 16, 4),  -- 3 "Česen" for Recept ID 4
+(2, 'pcs', 17, 4),  -- 2 "Bučke" for Recept ID 4
+(2, 'pcs', 18, 4),  -- 2 "Korenček" for Recept ID 4
+(500, 'g', 6, 4),   -- 500g "Paradižnik" for Recept ID 4
+(300, 'g', 19, 4),  -- 300g "Nariban sir" for Recept ID 4
+(400, 'g', 8, 4),   -- 400g "Riž" for Recept ID 4
+
+(250, 'g', 1, 5),   -- 250g "Moka" for Recept ID 5
+(200, 'g', 2, 5),   -- 200g "Sladkor" for Recept ID 5
+(50, 'g', 20, 5),   -- 50g "Kakav v prahu" for Recept ID 5
+(1, 'pcs', 21, 5),  -- 1 "Pecilni prašek" for Recept ID 5
+(3, 'pcs', 4, 5),   -- 3 "Jajca" for Recept ID 5
+(150, 'g', 3, 5),   -- 150g "Maslo" for Recept ID 5
+(200, 'g', 22, 5);  -- 200g "Čokoladna glazura" for Recept ID 5
+
+
+
 

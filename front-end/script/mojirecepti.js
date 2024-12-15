@@ -19,7 +19,8 @@ function createRecipeCard(product) {
 }
 
 function vzvezdice(x) {
-  const xe = parseInt(x);
+  const xe = parseInt(x); // Convert to an integer
+  if (isNaN(xe) || xe < 0) return ""; // Handle invalid or negative values
   let text = "";
   for (let i = 0; i < 3; i++) {
     if (i < xe) {
@@ -32,6 +33,8 @@ function vzvezdice(x) {
 }
 
 function createBigRecipeCard(recept) {
+  console.log("Težavnost:", recept.tezavnost); // Log raw value
+  console.log("Zvezdice:", vzvezdice(recept.tezavnost)); // Log the generated stars
   return `
       <div class="col-md-4 col-sm-12 mb-4" id="zunanjidivcard-res">
         <div class="card product-card" onclick="location.href='izdelek.html?id=${
