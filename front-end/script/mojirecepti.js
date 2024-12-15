@@ -1,5 +1,6 @@
 let najaciindex = []; // Global array to hold recipes
 let currentRecipe = null; // Store the currently selected recipe for editing
+trenutniUporabnikId = 1; // ID of the current user
 
 // Function to create HTML for a recipe card
 function createRecipeCard(product) {
@@ -33,34 +34,34 @@ function vzvezdice(x) {
 }
 
 function createBigRecipeCard(recept) {
-  console.log("Težavnost:", recept.tezavnost); // Log raw value
-  console.log("Zvezdice:", vzvezdice(recept.tezavnost)); // Log the generated stars
+  //console.log("Težavnost:", recept.tezavnost); // Log raw value
+  //console.log("Zvezdice:", vzvezdice(recept.tezavnost)); // Log the generated stars
   return `
-      <div class="col-md-4 col-sm-12 mb-4" id="zunanjidivcard-res">
-        <div class="card product-card" onclick="location.href='izdelek.html?id=${
-          recept.idrecepta
-        }'" style="background-color: white; height: 520px;" id="card-produkti-res">
-          <img src="../images/${recept.slika}" class="card-img-top" alt="${
+        <div class="col-md-6 col-sm-12 mb-4" id="zunanjidivcard-res">
+          <div class="card product-card" onclick="location.href='izdelek.html?id=${
+            recept.idrecepta
+          }'" style="background-color: white; height: 520px;" id="card-produkti-res">
+            <img src="../images/${recept.slika}" class="card-img-top" alt="${
     recept.slika
   }">
-          <div class="card-body" style="overflow: hidden;" id="card-body-naindex-res">
-            <h5 class="card-title">${recept.ime}</h5>
-            <p class="card-text pl-3 pr-3">
-              <span class="info-icon mt-1" id="opis-div-index-res">
-                <i class="fa-solid fa-info-circle mr-3 mb-3 ml-1"></i>${
-                  recept.opis
-                }
-              </span>
-              <div class="price" id="cenadiv-index-res">
-                <i class="fa-solid fa-weight-hanging"></i>Težavnost: ${vzvezdice(
-                  recept.tezavnost
-                )}
-              </div>
-            </p>
+            <div class="card-body" style="overflow: hidden;" id="card-body-naindex-res">
+              <h5 class="card-title">${recept.ime}</h5>
+              <p class="card-text pl-3 pr-3">
+                <span class="info-icon mt-1" id="opis-div-index-res">
+                  <i class="fa-solid fa-info-circle mr-3 mb-3 ml-1"></i>${
+                    recept.opis
+                  }
+                </span>
+                <div class="price" id="cenadiv-index-res">
+                  <i class="fa-solid fa-weight-hanging"></i>Težavnost: ${vzvezdice(
+                    recept.tezavnost
+                  )}
+                </div>
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    `;
+      `;
 }
 
 // Function to display all recipes
@@ -69,7 +70,8 @@ function displayRecipes() {
   container.innerHTML = ""; // Clear existing content
 
   // Fetch recipes from the API
-  fetch(`http://localhost:8080/uporabniki/1/recepti`)
+  // primer dostopa do swaggerja za nek endpoint http://localhost:8080/swagger-ui/index.html#/recept-controller/getAllRecepti
+  fetch(`http://localhost:8080/uporabniki/${trenutniUporabnikId}/recepti`)
     .then((response) => {
       if (!response.ok) {
         throw new Error("Network response was not ok: " + response.statusText);
@@ -296,9 +298,21 @@ function priporoceniReceptiPoSestavini(iskanaSestavina) {
     })
     .then((recepti) => {
       // Filter recipes that contain the desired sestavina
+      /*const priporoceniRecepti = recepti.filter((recept) =>
+        recept.sestavine.some(
+          (sestavina) =>
+            sestavina.tkSestavina.ime === iskanaSestavina &&
+            recept.TK_Uporabnik !== trenutniUporabnikId,
+          console.log(recept.TK_Uporabnik, trenutniUporabnikId)
+        )
+      );*/
+
+      // Filter recipes that contain the desired sestavina and are not owned by the current user
       const priporoceniRecepti = recepti.filter((recept) =>
         recept.sestavine.some(
-          (sestavina) => sestavina.tkSestavina.ime === iskanaSestavina
+          (sestavina) =>
+            sestavina.tkSestavina.ime === iskanaSestavina &&
+            recept.uporabnik.idUporabnika !== trenutniUporabnikId
         )
       );
 

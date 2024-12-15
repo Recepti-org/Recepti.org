@@ -78,7 +78,7 @@ VALUES
 ('Palačinke', 'Mehke palačinke', 1, 20.0, 'palacinke.jpg', 1),
 ('Špageti Carbonara', 'Tradicionalni italijanski špageti', 3, 40.0, 'karbonara.jpg', 3),
 ('Zelenjavna lazanja', 'Sveža lazanja z zelenjavo in parmezanom', 2, 50.0, 'zelenjavna-lazanja.jpg', 3),
-('Čokoladna torta', 'Sočna čokoladna torta s prelivom', 3, 90.0, 'cokoladna-torta.jpg', 3);
+('Čokoladna torta', 'Sočna čokoladna torta s prelivom', 1, 90.0, 'cokoladna-torta.jpg', 3);
 
 
 -- Koraki za "Rižota s piščancem" (idrecepta = 1)
