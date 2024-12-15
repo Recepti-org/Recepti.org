@@ -13,6 +13,16 @@ public class Sestavina {
 
     private String ime;
 
+    @ManyToOne
+    @JoinColumn(name = "TK_tip")
+    private TipSestavine Tktip;
+
+    public Sestavina(int idsestavine, String ime, TipSestavine tktip) {
+        this.idsestavine = idsestavine;
+        this.ime = ime;
+        Tktip = tktip;
+    }
+
     public Sestavina() {}
 
     public Sestavina(String ime) {
