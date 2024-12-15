@@ -57,17 +57,30 @@ Razviti sistem za analizo pogostosti uporabe sestavin na podlagi zgodovine recep
   - _Točke_: 3
   - _Prioriteta_: Srednja
 
----
+#### **6. Dokumentacija**
+- **Opis:** Kratko poročilo o napredku.
+  - _Točke_: 1
+  - _Prioriteta_: Nizka
 
-## **Napredek**
+#### 7. Prikaz receptov z najpogostejšimi sestavinami (Nova funkcionalnost)
+- ** Dodaj funkcionalnost za prikaz receptov z najpogostejšimi sestavinami
+   - Točke: 4
+   - Prioriteta: Visoka
+   - Opis: Razviti sistem, ki omogoča uporabnikom, da vidijo seznam receptov z najpogostejšimi sestavinami na podlagi prejšnjih iskanj in receptov v bazi. 
+   - Ta vključuje naslednja opravila:
+      - Analiza zahteve
+      - Prilagoditev uporabniškega vmesnika  
+      - Prikaz uporabnikovih receptov z najpogostejšimi sestavinami 
+      - Testiranje
+---
 
 ### **Pregled trenutnega stanja**
 
 | **Stolpec** | **Število nalog** |
-| ----------- | ----------------- |
-| To Do       | 6                 |
+| ----------- |-------------------|
+| To Do       | 0                 |
 | In Progress | 0                 |
-| Done        | 0                 |
+| Done        | 10                |
 
 ## **Komunikacija s stranko**
 
@@ -76,7 +89,8 @@ Razviti sistem za analizo pogostosti uporabe sestavin na podlagi zgodovine recep
 
 ### **Povratne informacije**
 
-- ***
+- **Povratne informacije glede nove funkcionalnosti:** 
+   - Stranka je zadovoljna z napredkom in predlaga dodajanje funkcionalnosti za priporočanje receptov na podlagi uporabniškega okusa, kar bo povečalo personalizacijo storitve.
 
 ## **Izpolnjevanje Kanban načel**
 
