@@ -44,10 +44,17 @@ CREATE TABLE IF NOT EXISTS Ocena (
     FOREIGN KEY (TKuporabnik) REFERENCES Uporabnik (idUporabnika)
 );
 
+CREATE TABLE IF NOT EXISTS Tipsestavine(
+    `idtipa` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `ime` VARCHAR(255) NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS Sestavina (
     `idsestavine` INT NOT NULL AUTO_INCREMENT,
     `ime` VARCHAR(200) NOT NULL,
-    PRIMARY KEY (`idsestavine`)
+        `TK_tip` INT NOT NULL,
+    PRIMARY KEY (`idsestavine`),
+	FOREIGN KEY (TK_tip) REFERENCES TipSestavine (idtipa)
 );
 
 CREATE TABLE IF NOT EXISTS SestavinaKolicina(
@@ -142,32 +149,48 @@ VALUES
 (4, 'Zelo dobro, a malo premalo sira za moj okus.', 'Katera zelišča priporočate za boljši okus?', 3, 3),
 (2, 'Preveč slano za moj okus.', 'Ali je možno zmanjšati količino pancete?', 3, 1);
 
+INSERT INTO Tipsestavine (ime) VALUES 
+('Osnovne sestavine'), -- ID 1
+('Sladila'),           -- ID 2
+('Mlečni izdelki'),    -- ID 3
+('Beljakovine'),       -- ID 4
+('Začimbe'),           -- ID 5
+('Zelenjava'),         -- ID 6
+('Mesni izdelki'),     -- ID 7
+('Žitarice'),          -- ID 8
+('Zelišča'),           -- ID 9
+('Testenine'),         -- ID 10
+('Suhe mesnine'),      -- ID 11
+('Smetana in sir'),    -- ID 12
+('Tekočine'),          -- ID 13
+('Voda'),              -- ID 14
+('Drugo');             -- Additional categories
 
 
 
-INSERT INTO Sestavina (ime) VALUES 
-('Moka'),       -- Flour
-('Sladkor'),    -- Sugar
-('Maslo'),      -- Butter
-('Jajca'),      -- Eggs
-('Sol'),        -- Salt
-('Paradižnik'),
-('Piščanec'),
-('Riž'),
-('Paprika'),
-('Špageti'),
-('Hamburška slanina'),
-('Smetana'),
-('Mleko'),
-('Voda'),
-('Čebula'),         -- Onion
-('Česen'),          -- Garlic
-('Bučke'),          -- Zucchini
-('Korenček'),       -- Carrot
-('Nariban sir'),    -- Grated cheese
-('Kakav v prahu'),  -- Cocoa powder
-('Pecilni prašek'), -- Baking powder
-('Čokoladna glazura'); -- Chocolate glaze
+INSERT INTO Sestavina (ime, TK_tip) VALUES 
+('Moka', 1),       -- Flour
+('Sladkor', 5),    -- Sugar
+('Maslo', 1),      -- Butter
+('Jajca', 1),      -- Eggs
+('Sol', 5),        -- Salt
+('Paradižnik', 6),
+('Piščanec', 7),
+('Riž', 8),
+('Paprika', 9),
+('Špageti', 10),
+('Hamburška slanina', 11),
+('Smetana', 12),
+('Mleko', 1),
+('Voda', 1),
+('Čebula', 1),         -- Onion
+('Česen', 1),          -- Garlic
+('Bučke', 6),          -- Zucchini
+('Korenček', 6),       -- Carrot
+('Nariban sir', 12),    -- Grated cheese
+('Kakav v prahu', 2),  -- Cocoa powder
+('Pecilni prašek', 2), -- Baking powder
+('Čokoladna glazura', 2); -- Chocolate glaze
 
 
 
@@ -210,6 +233,39 @@ INSERT INTO SestavinaKolicina (kolicina, enota, TK_sestavina, TK_recepta) VALUES
 (3, 'pcs', 4, 5),   -- 3 "Jajca" for Recept ID 5
 (150, 'g', 3, 5),   -- 150g "Maslo" for Recept ID 5
 (200, 'g', 22, 5);  -- 200g "Čokoladna glazura" for Recept ID 5
+
+INSERT INTO Recept (Ime, Opis, tezavnost, caspriprave, slika, TK_Uporabnik) 
+VALUES 
+('Piščančji curry', 'Okusen piščančji curry z začimbami', 3, 40.0, 'curry.webp', 2);
+
+
+-- Koraki za "Piščančji curry" (idrecepta = 6)
+INSERT INTO Koraki (opis, stkoraka, TKrecepta) 
+VALUES 
+('Segrej olje v ponvi.', 1, 6),
+('Dodaj narezano čebulo in česen ter praži, dokler ne postaneta mehka.', 2, 6),
+('Dodaj narezano piščančje meso in praži, dokler ne postane zlato rjavo.', 3, 6),
+('Vmešaj začimbe (kumin, kurkuma, curry v prahu) in praži še 2 minuti.', 4, 6),
+('Dodaj kokosovo mleko in kuhaj, dokler se omaka ne zgosti.', 5, 6),
+('Na koncu dodaj svež koriander in postreži s kuhanim rižem.', 6, 6);
+
+INSERT INTO Sestavina (ime, TK_tip) VALUES 
+('Kokosovo mleko', 1),  -- Coconut milk (under general ingredients category)
+('Kurry v prahu', 5),   -- Curry powder (under spices category)
+('Kumin', 5),           -- Cumin (under spices category)
+('Kurkuma', 5);         -- Turmeric (under spices category)
+
+
+INSERT INTO SestavinaKolicina (kolicina, enota, TK_sestavina, TK_recepta) 
+VALUES 
+(300, 'g', 7, 6),  -- 300g "Piščanec" for Recept ID 6
+(1, 'pcs', 1, 6),   -- 1 "Čebula" for Recept ID 6
+(2, 'g', 1, 6), -- 2 "Česen" for Recept ID 6
+(400, 'mL', 12, 6),  -- 400mL "Kokosovo mleko" for Recept ID 6
+(10, 'g', 5, 6),    -- 10g "Začimbe" for curry powder for Recept ID 6
+(5, 'g', 5, 6),     -- 5g "Začimbe" for cumin for Recept ID 6
+(5, 'g', 5, 6),     -- 5g "Začimbe" for turmeric for Recept ID 6
+(200, 'g', 8, 6);   -- 200g "Riž" for Recept ID 6
 
 
 
