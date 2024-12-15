@@ -193,7 +193,7 @@ function najpogostejsasestavina(recepti) {
   const fetchPromises = recepti.map((recept) => {
     let id = recept.idrecepta;
 
-    return fetch(`http://localhost:8080/api/sestavine-kolicine/recept/${id}`)
+    return fetch(`http://localhost:8080/api/recept/${id}/filtered`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(
@@ -255,6 +255,7 @@ function najpogostejsasestavina(recepti) {
       "sestavina"
     ).innerHTML = `<ul style="list-style: none;">${sestavinaList}</ul>`;
 
+    console.log(mostUsedsestavina)
     // Call the function to recommend recipes based on the most used ingredient
     priporoceniReceptiPoSestavini(mostUsedsestavina);
   });
@@ -275,7 +276,7 @@ function priporoceniReceptiPoSestavini(iskanaSestavina) {
         let id = recept.idrecepta;
 
         return fetch(
-          `http://localhost:8080/api/sestavine-kolicine/recept/${id}`
+          `http://localhost:8080/api/recept/${id}`
         )
           .then((response) => {
             if (!response.ok) {

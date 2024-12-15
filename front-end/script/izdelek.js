@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function receptsestavine() {
   const peopleCount = document.getElementById("peopleCount").value;
   if (peopleCount && peopleCount > 0) {
-    fetch(`http://localhost:8080/api/sestavine-kolicine/recept/${idrecept}`)
+    fetch(`http://localhost:8080/api/recept/${idrecept}`)
       .then((response) => response.json())
       .then((data) => {
         // Update the UI with the adjusted ingredient quantities
