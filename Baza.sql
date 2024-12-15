@@ -130,19 +130,39 @@ INSERT INTO Sestavina (ime) VALUES
 ('Sladkor'),    -- Sugar
 ('Maslo'),      -- Butter
 ('Jajca'),      -- Eggs
-('Sol');        -- Salt
+('Sol'),        -- Salt
+('Paradižnik'),
+('Piščanec'),
+('Riž'),
+('Paprika'),
+('Špageti'),
+('Hamburška slanina'),
+('Smetana'),
+('Mleko'),
+('Voda');
 
 
 INSERT INTO SestavinaKolicina (kolicina, enota, TK_sestavina, TK_recepta) VALUES 
-(200, 'g', 1, 1), -- 200g of "Moka" for Recept ID 1
-(100, 'g', 2, 1), -- 100g of "Sladkor" for Recept ID 1
-(50, 'g', 3, 1),  -- 50g of "Maslo" for Recept ID 1
-(2, 'pcs', 4, 1), -- 2 "Jajca" for Recept ID 1 
-(1, 'tsp', 5, 1), -- 1 teaspoon of "Sol" for Recept ID 1
+(200, 'g', 7, 1), -- 200g of "Piščanec" for Recept ID 1
+(400, 'g', 9, 1),  -- 400g of "Riž" for Recept ID 1
+(2, 'pcs', 4, 1), -- 2 "Paprika" for Recept ID 1 
+(3, 'psc', 6, 1),	-- 4 "Paradižnik" for Recept ID 1
+(1, 'psc', 4, 1),
+(0.5, 'L', 14, 1), -- 0.5L "Voda" for Recept ID 1
+(3, 'pcs', 4, 1), -- 3 "Jajca" for Recept ID 1
 
 (300, 'g', 1, 2), -- 300g of "Moka" for Recept ID 2
-(150, 'g', 2, 2), -- 150g of "Sladkor" for Recept ID 2
 (100, 'g', 3, 2), -- 100g of "Maslo" for Recept ID 2
 (3, 'pcs', 4, 2), -- 3 "Jajca" for Recept ID 2
-(2, 'tsp', 5, 2); -- 2 teaspoons of "Sol" for Recept ID 2
+(0.5, 'L', 13, 2), -- 0.5L "Mleko" for Recept ID 2
+(100, 'g', 3, 2), -- 100g of "Maslo" for Recept ID 2
+(0.5, 'L', 14, 2), -- 0.5L "Voda" for Recept ID 2
+
+(1, 'psc', 6, 3),
+(400, 'g', 10, 3),
+(240, 'g', 11, 3),
+(200, 'mL', 12, 3),
+(150, 'g', 1, 3),
+(100, 'g', 3, 3), -- 100g of "Maslo" for Recept ID 3
+(2, 'pcs', 4, 3); -- 3 "Jajca" for Recept ID 3
 

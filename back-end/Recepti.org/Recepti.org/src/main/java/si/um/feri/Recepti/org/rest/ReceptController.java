@@ -60,4 +60,13 @@ public class ReceptController {
         return dao.searchByKeyword(keyword);
     }
 
+    @GetMapping("/recepti")
+    public ResponseEntity<List<Recept>> getAllRecepti() {
+        List<Recept> recepti = (List<Recept>) dao.findAll(); // Pridobi vse recepte
+        if (recepti.isEmpty()) {
+            return ResponseEntity.noContent().build(); // Vrne 204 (brez vsebine), če ni receptov
+        }
+        return ResponseEntity.ok(recepti); // Vrne 200 in seznam receptov
+    }
+
 }
