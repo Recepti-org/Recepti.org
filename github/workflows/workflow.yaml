@@ -1,0 +1,10 @@
+on:
+  push:
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build_backend:
+    name: Build Backend
+    runs-on: ubuntu-latest
+    steps:
