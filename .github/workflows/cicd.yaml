@@ -43,7 +43,8 @@ jobs:
       - name: Install and build frontend
         run: |
           npm ci
-        workking-directory: front-end
+          npm run build
+        working-directory: front-end
 
   test-backend:
     name: Test Backend
@@ -73,5 +74,5 @@ jobs:
 
       - name: Run tests
         run: |
-          ./mvnw test
+          mvn test
         working-directory: back-end
