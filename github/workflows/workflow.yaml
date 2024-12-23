@@ -1,0 +1,27 @@
+on:
+  push:
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build_backend:
+    name: Build Backend
+    runs-on: ubuntu-latest
+    steps:
+
+
+
+
+  build_frontend:
+    name: Build Frontend
+    runs-on: ubuntu-latest
+    steps:
+
+
+
+
+  unit_test_be:
+    name: Unit Test Backend
+    needs: [build_backend]
+    runs-on: ubuntu-latest
+    steps:
