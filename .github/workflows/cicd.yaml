@@ -25,7 +25,7 @@ jobs:
       - name: Build backend
         run: |
           mvn -B package --file pom.xml
-        working-directory: back-end
+        working-directory: back-end/Recepti.org/Recepti.org
 
   build-frontend:
     name: Build Frontend
@@ -43,7 +43,6 @@ jobs:
       - name: Install and build frontend
         run: |
           npm ci
-          npm run build
         working-directory: front-end
 
   test-backend:
@@ -74,5 +73,5 @@ jobs:
 
       - name: Run tests
         run: |
-          mvn test
-        working-directory: back-end
+          ./mvnw test
+        working-directory: back-end/Recepti.org/Recepti.org
