@@ -59,4 +59,3 @@ public class KorakiTest {
         assertFalse(korak1.equals(korak2), "Koraka z različnimi atributi ne bi smela biti enaka.");
     }
 }
-
