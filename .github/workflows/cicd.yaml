@@ -12,8 +12,11 @@ jobs:
   test_database_connection:
     runs-on: ubuntu-latest
     steps:
-      - name: Install MySQL Client
-        run: sudo apt-get install -y mysql-client
+      - name: Install MySQL Server and Client
+          run: |
+            sudo apt-get update
+            sudo apt-get install -y mysql-server mysql-client
+            sudo service mysql start
 
       - name: Test Database Connection
         run: |
