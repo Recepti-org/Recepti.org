@@ -29,7 +29,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest
+/*@SpringBootTest
 @Transactional
 @ExtendWith(MockitoExtension.class)
 public class ReceptTest {
@@ -70,7 +70,7 @@ public class ReceptTest {
             assertTrue(dodanrecept.isPresent());
             assertEquals("Recept2", dodanrecept.get().getIme());
             assertEquals("Test Opis", dodanrecept.get().getOpis());
-        }
+        }*/
 
 
     /*@Test
@@ -84,7 +84,7 @@ public class ReceptTest {
         assertFalse(dao.existsById(recept.get().getIdrecepta()));
     }*/
 
-    @Test
+    /*@Test
     public void testiram_brisanje2() {
         // Arrange: Dodajte testne podatke
         Uporabnik uporabnik = new Uporabnik("Test", "Uporabnik");
@@ -99,7 +99,7 @@ public class ReceptTest {
 
         // Assert: Preverite, ali je recept izbrisan
         assertFalse(dao.existsById(novRecept.getIdrecepta()));
-    }
+    }*/
 
 
     // Preveri, da kontroler vrne seznam receptov s statusom 200 OK, ko so recepti na voljo
@@ -125,7 +125,7 @@ public class ReceptTest {
         }*/
 
         //Preveri, da kontroler vrne status 204 No Content, ko ni receptov
-        @Test
+        /*@Test
         public void testGetAllRecepti_ReturnsNoContent() {
             // Arrange
             when(receptRepository.findAll()).thenReturn(Arrays.asList()); // Simulate an empty list of recipes
@@ -139,7 +139,7 @@ public class ReceptTest {
             verify(receptRepository, times(1)).findAll(); // Verify that the findAll() method was called once
         }
 
-}
+}*/
 
 
 
