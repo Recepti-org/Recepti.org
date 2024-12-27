@@ -33,7 +33,7 @@ jobs:
   build-backend:
     name: Build Backend
     runs-on: ubuntu-latest
-    needs: test_database_connection
+    needs: test-database-connection
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -44,10 +44,20 @@ jobs:
           distribution: "adopt"
           java-version: "19"
 
+      - name: Install dockerize
+        run: |
+          curl -sSL https://github.com/jwilder/dockerize/releases/download/v0.6.1/dockerize-linux-amd64-v0.6.1.tar.gz | tar xz -C /usr/local/bin
+
+      - name: Wait for MySQL to be ready
+        run: |
+          dockerize -wait tcp://mysql:3306 -timeout 1m
+
       - name: Build backend
         run: |
           mvn -B package --file pom.xml
         working-directory: back-end/Recepti.org/Recepti.org
+        env:
+          SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/Recepti
 
   build-frontend:
     name: Build Frontend
