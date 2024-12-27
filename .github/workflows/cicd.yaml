@@ -9,31 +9,9 @@ on:
       - main
 
 jobs:
-  test_database_connection:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Install MySQL Server and Client
-        run: |
-            sudo apt-get update
-            sudo apt-get install -y mysql-server mysql-client
-            sudo service mysql start
-
-      - name: Create Recepti Database if not exists
-        run: |
-            mysql -h localhost -u root -proot -e "CREATE DATABASE IF NOT EXISTS recepti;"
-
-      - name: Test Database Connection
-        run: |
-          mysql -h localhost -u root -proot -e "SHOW DATABASES;"
-        env:
-          DB_HOST: localhost
-          DB_USER: root
-          DB_PASSWORD: root
-
   build-backend:
     name: Build Backend
     runs-on: ubuntu-latest
-    needs: test_database_connection
     services:
       mysql:
         image: mysql:8.0
@@ -129,3 +107,4 @@ jobs:
         run: |
           ./mvnw test
         working-directory: back-end/Recepti.org
+
