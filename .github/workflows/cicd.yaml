@@ -33,6 +33,7 @@ jobs:
   build-backend:
     name: Build Backend
     runs-on: ubuntu-latest
+    needs: test_database_connection
     services:
       mysql:
         image: mysql:8.0
