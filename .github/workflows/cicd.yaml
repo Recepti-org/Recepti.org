@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install MySQL Server and Client
-          run: |
+        run: |
             sudo apt-get update
             sudo apt-get install -y mysql-server mysql-client
             sudo service mysql start
