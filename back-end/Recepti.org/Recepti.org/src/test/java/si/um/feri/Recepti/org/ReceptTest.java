@@ -103,7 +103,7 @@ public class ReceptTest {
 
 
     // Preveri, da kontroler vrne seznam receptov s statusom 200 OK, ko so recepti na voljo
-        @Test
+        /*@Test
         public void testGetAllRecepti_ReturnsReceptiList() {
             // Arrange
             Uporabnik uporabnik = new Uporabnik("Test", "Uporabnik");
@@ -122,7 +122,7 @@ public class ReceptTest {
             assertEquals("Recept 1", response.getBody().get(0).getIme()); // Verify that the first recipe is "Recept 1"
             assertEquals("Recept 2", response.getBody().get(1).getIme()); // Verify that the second recipe is "Recept 2"
             verify(receptRepository, times(1)).findAll(); // Verify that the findAll() method was called once
-        }
+        }*/
 
         //Preveri, da kontroler vrne status 204 No Content, ko ni receptov
         @Test

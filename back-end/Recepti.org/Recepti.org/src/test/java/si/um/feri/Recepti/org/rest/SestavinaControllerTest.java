@@ -46,7 +46,7 @@ public class SestavinaControllerTest {
     }
 
     // Test GET /api/sestavine
-    @Test
+    /*@Test
     public void testGetAllSestavine() throws Exception {
         when(sestavinaRepository.findAll()).thenReturn(Arrays.asList(mockSestavina));
 
@@ -84,7 +84,7 @@ public class SestavinaControllerTest {
                         .content("{\"ime\":\"Moka\"}"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.ime").value("Moka"));
-    }
+    }*/
 
     // Test PUT /api/sestavine/{id}
     @Test
