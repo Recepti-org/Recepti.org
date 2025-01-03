@@ -79,8 +79,11 @@ jobs:
         with:
           node-version: "20.11.1"
 
-      - name: Generate package-lock.json
-        run: npm install --package-lock-only
+      - name: Clear existing lock files
+        run: rm -f front-end/package-lock.json
+
+      - name: Install dependencies and generate package-lock.json
+        run: npm install
         working-directory: front-end
 
       - name: Install dependencies
