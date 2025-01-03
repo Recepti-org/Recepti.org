@@ -59,19 +59,20 @@ jobs:
         run: |
             mkdir -p front-end
             echo '{
-              "name": "frontend-app",
-              "version": "1.0.0",
-              "scripts": {
-                "start": "react-scripts start",
-                "build": "react-scripts build",
-                "test": "react-scripts test --env=jsdom",
-                "eject": "react-scripts eject"
-              },
-              "dependencies": {
-                "react": "^17.0.2",
-                "react-dom": "^17.0.2",
-                "react-scripts": "^4.0.3"
-              }
+            "name": "frontend-app",
+            "version": "1.0.0",
+            "scripts": {
+             "start": "react-scripts start",
+             "build": "react-scripts build",
+             "test": "react-scripts test --env=jsdom",
+             "eject": "react-scripts eject"
+            },
+            "dependencies": {
+             "react": "^17.0.2",
+             "react-dom": "^17.0.2",
+             "react-scripts": "^4.0.3",
+             "type-fest": "^0.21.3"
+            }
             }' > front-end/package.json
 
       - name: Set up Node.js
@@ -82,11 +83,15 @@ jobs:
       - name: Clear existing lock files
         run: rm -f front-end/package-lock.json
 
-      - name: Install dependencies and generate package-lock.json
+      - name: Install dependencies
         run: npm install
         working-directory: front-end
 
-      - name: Install dependencies
+      - name: Synchronize lock file
+        run: npm install --package-lock-only
+        working-directory: front-end
+
+      - name: Install dependencies with npm ci
         run: npm ci
         working-directory: front-end
 
