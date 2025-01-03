@@ -60,9 +60,11 @@ jobs:
         with:
           node-version: "20.11.1"
 
-      - name: Install and build frontend
-        run: |
-          npm ci
+      - name: Generate package-lock.json
+        run: npm install --package-lock-only
+        working-directory: front-end
+      - name: Install dependencies
+        run: npm ci
         working-directory: front-end
 
   test-backend:
