@@ -38,12 +38,12 @@ jobs:
 
       - name: Build backend
         run: |
-          mvn -B package --file pom.xml
+          mvn clean install
         working-directory: back-end/Recepti.org/Recepti.org
         env:
           SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/Recepti
 
-      # Additional steps for Java CI
+      # Additional steps for Java CI (optional)
       - name: Cache Maven packages
         uses: actions/cache@v3
         with:
@@ -51,14 +51,6 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-m2
-
-      - name: Build with Maven
-        run: mvn clean install
-        working-directory: back-end/Recepti.org/Recepti.org
-
-      - name: Run Tests
-        run: mvn test
-        working-directory: back-end/Recepti.org/Recepti.org
 
   build-frontend:
     name: Build Frontend
@@ -152,7 +144,13 @@ jobs:
         run: |
           mysql -h $MYSQL_IP -P 3306 -uroot -proot recepti < Baza.sql
 
+      # Build backend (since it's not in the build-backend job anymore)
+      - name: Build backend
+        run: |
+          mvn clean install
+        working-directory: back-end/Recepti.org/Recepti.org
+
       - name: Run tests
         run: |
-          ./mvnw test
-        working-directory: back-end/Recepti.org
+          mvn test
+        working-directory: back-end/Recepti.org/Recepti.org
