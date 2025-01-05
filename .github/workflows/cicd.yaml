@@ -36,10 +36,6 @@ jobs:
         run: |
           curl -sSL https://github.com/jwilder/dockerize/releases/download/v0.6.1/dockerize-linux-amd64-v0.6.1.tar.gz | tar xz -C /usr/local/bin
 
-      #- name: Wait for MySQL to be ready
-        #run: |
-          #dockerize -wait tcp://mysql:3306 -timeout 1m
-
       - name: Build backend
         run: |
           mvn -B package --file pom.xml
@@ -108,12 +104,7 @@ jobs:
           MYSQL_USER: root
           MYSQL_PASSWORD: root
         options: --health-cmd="mysqladmin ping --silent" --health-timeout=30s --health-retries=5
-      # Custom backend service image, ensure it's available in your registry
-      my-backend-service:
-        image: your-registry/my-backend-image:latest
-        options: --health-cmd='curl --silent --fail http://localhost:8080 || exit 1' --health-timeout=30s --health-retries=5
 
-  
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -135,8 +126,23 @@ jobs:
         run: |
           mysql -h mysql -P 3306 -uroot -proot -e "CREATE DATABASE recepti;"
 
+      - name: Preload Database Schema
+        run: |
+          mysql -h mysql -P 3306 -uroot -proot recepti < Baza.sql
+
+      - name: Build backend Docker image
+        run: |
+          docker build -t my-backend-image:latest back-end/Recepti.org/Recepti.org/
+
+      - name: Run backend container
+        run: |
+          docker run -d --name my-backend-service --network host my-backend-image:latest
+
+      - name: Wait for Backend to be ready
+        run: |
+          dockerize -wait tcp://localhost:8080 -timeout 1m
+
       - name: Run tests
         run: |
           ./mvnw test
         working-directory: back-end/Recepti.org
-
