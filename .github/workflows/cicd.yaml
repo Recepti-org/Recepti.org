@@ -54,9 +54,11 @@ jobs:
 
       - name: Build with Maven
         run: mvn clean install
+        working-directory: back-end/Recepti.org/Recepti.org
 
       - name: Run Tests
         run: mvn test
+        working-directory: back-end/Recepti.org/Recepti.org
 
   build-frontend:
     name: Build Frontend
