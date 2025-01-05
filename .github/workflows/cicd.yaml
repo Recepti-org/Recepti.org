@@ -119,7 +119,7 @@ jobs:
 
       - name: Wait for MySQL to be ready
         run: |
-          dockerize -wait tcp://mysql:3306 -timeout 1m
+          dockerize -wait tcp://mysql:3306 -timeout 2m  # Increase timeout to 2m for more waiting time
 
       - name: Create Additional Database
         run: |
