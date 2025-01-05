@@ -110,8 +110,9 @@ jobs:
         options: --health-cmd="mysqladmin ping --silent" --health-timeout=30s --health-retries=5
       # Custom backend service image, ensure it's available in your registry
       my-backend-service:
-        image: my-backend-image:latest
-        options: --health-cmd='curl --silent --fail http://localhost:8080/health' --health-timeout=30s --health-retries=5
+        image: your-registry/my-backend-image:latest
+        options: --health-cmd='curl --silent --fail http://localhost:8080 || exit 1' --health-timeout=30s --health-retries=5
+
   
     steps:
       - name: Checkout code
