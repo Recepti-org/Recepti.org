@@ -129,7 +129,7 @@ jobs:
 
       - name: Create Additional Database
         run: |
-          mysql -h $MYSQL_IP -P 3306 -uroot -proot -e "CREATE DATABASE recepti;"
+          mysql -h $MYSQL_IP -P 3306 -uroot -proot -e "CREATE DATABASE IF NOT EXISTS recepti;"
 
       - name: Preload Database Schema
         run: |
