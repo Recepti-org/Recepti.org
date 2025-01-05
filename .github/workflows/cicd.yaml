@@ -115,6 +115,10 @@ jobs:
           distribution: "temurin"
           java-version: '19'
 
+      - name: Install dockerize
+        run: |
+          curl -sSL https://github.com/jwilder/dockerize/releases/download/v0.6.1/dockerize-linux-amd64-v0.6.1.tar.gz | tar xz -C /usr/local/bin
+      
       - name: Get MySQL container IP
         run: |
           MYSQL_IP=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -q --filter "ancestor=mysql:8.0"))
@@ -123,6 +127,7 @@ jobs:
       - name: Wait for MySQL to be ready
         run: |
           dockerize -wait tcp://$MYSQL_IP:3306 -timeout 1m
+
 
       - name: Create Additional Database
         run: |
