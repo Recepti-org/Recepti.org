@@ -43,6 +43,21 @@ jobs:
         env:
           SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/Recepti
 
+      # Additional steps for Java CI
+      - name: Cache Maven packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-m2
+
+      - name: Build with Maven
+        run: mvn clean install
+
+      - name: Run Tests
+        run: mvn test
+
   build-frontend:
     name: Build Frontend
     runs-on: ubuntu-latest
