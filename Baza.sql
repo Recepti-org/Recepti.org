@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS Sestavina (
     `ime` VARCHAR(200) NOT NULL,
         `TK_tip` INT NOT NULL,
     PRIMARY KEY (`idsestavine`),
-	FOREIGN KEY (TK_tip) REFERENCES TipSestavine (idtipa)
+	FOREIGN KEY (TK_tip) REFERENCES Tipsestavine (idtipa)
 );
 
 CREATE TABLE IF NOT EXISTS SestavinaKolicina(
