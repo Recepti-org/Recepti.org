@@ -168,68 +168,66 @@ INSERT INTO Tipsestavine (ime) VALUES
 ('Drugo');             -- Additional categories
 
 INSERT INTO Sestavina (ime, cena, TK_tip) VALUES 
-('Moka', 1.20, 1),
-('Sladkor', 0.90, 5),
-('Maslo', 2.50, 1),
-('Jajca', 0.30, 1),
-('Sol', 0.05, 5),
-('Paradižnik', 1.50, 6),
-('Piščanec', 5.00, 7),
-('Riž', 1.80, 8),
-('Paprika', 1.20, 9),
-('Špageti', 1.50, 10),
-('Hamburška slanina', 3.00, 11),
-('Smetana', 0.80, 12),
-('Mleko', 0.70, 1),
-('Voda', 0.00, 1),
-('Čebula', 0.40, 1),
-('Česen', 0.20, 1),
-('Bučke', 1.00, 6),
-('Korenček', 0.50, 6),
-('Nariban sir', 2.80, 12),
-('Kakav v prahu', 1.50, 2),
-('Pecilni prašek', 0.30, 2),
-('Čokoladna glazura', 3.50, 2);
+('Moka', 1.20 / 1000, 1),       -- Cena na gram
+('Sladkor', 0.90 / 1000, 5),    -- Cena na gram
+('Maslo', 2.50 / 1000, 1),      -- Cena na gram
+('Jajca', 0.30, 1),             -- Cena na kos
+('Sol', 0.05 / 1000, 5),        -- Cena na gram
+('Paradižnik', 1.50 / 1000, 6), -- Cena na gram
+('Piščanec', 5.00 / 1000, 7),   -- Cena na gram
+('Riž', 1.80 / 1000, 8),        -- Cena na gram
+('Paprika', 1.20 / 1000, 9),    -- Cena na gram
+('Špageti', 1.50 / 1000, 10),   -- Cena na gram
+('Hamburška slanina', 3.00 / 1000, 11), -- Cena na gram
+('Smetana', 0.80, 12),          -- Cena na liter
+('Mleko', 0.70, 1),             -- Cena na liter
+('Voda', 0.00, 1),              -- Cena na liter
+('Čebula', 0.40, 1),            -- Cena na kos
+('Česen', 0.20, 1),             -- Cena na kos
+('Bučke', 1.00 / 1000, 6),      -- Cena na gram
+('Korenček', 0.50 / 1000, 6),   -- Cena na gram
+('Nariban sir', 2.80 / 1000, 12), -- Cena na gram
+('Kakav v prahu', 1.50 / 1000, 2), -- Cena na gram
+('Pecilni prašek', 0.30, 2),    -- Cena na kos
+('Čokoladna glazura', 3.50 / 1000, 2); -- Cena na gram
 
 INSERT INTO SestavinaKolicina (kolicina, enota, TK_sestavina, TK_recepta) VALUES 
-(200, 'g', 7, 1), -- 200g of "Piščanec" for Recept ID 1
-(400, 'g', 8, 1),  -- 400g of "Riž" for Recept ID 1
-(2, 'pcs', 9, 1), -- 2 "Paprika" for Recept ID 1 
-(3, 'psc', 6, 1),	-- 4 "Paradižnik" for Recept ID 1
+(200, 'g', 7, 1),  -- 200g "Piščanec" for Recept ID 1
+(400, 'g', 8, 1),  -- 400g "Riž" for Recept ID 1
+(2, 'pcs', 9, 1),  -- 2 "Paprika" for Recept ID 1
+(3, 'pcs', 6, 1),  -- 3 "Paradižnik" for Recept ID 1
 (0.5, 'L', 14, 1), -- 0.5L "Voda" for Recept ID 1
-(3, 'pcs', 4, 1), -- 3 "Jajca" for Recept ID 1
-(3, 'pcs', 4, 1), -- 3 "Jajca" for Recept ID 1
+(3, 'pcs', 4, 1),  -- 3 "Jajca" for Recept ID 1
 
-(300, 'g', 1, 2), -- 300g of "Moka" for Recept ID 2
-(100, 'g', 3, 2), -- 100g of "Maslo" for Recept ID 2
-(3, 'pcs', 4, 2), -- 3 "Jajca" for Recept ID 2
+(300, 'g', 1, 2),  -- 300g "Moka" for Recept ID 2
+(100, 'g', 3, 2),  -- 100g "Maslo" for Recept ID 2
+(3, 'pcs', 4, 2),  -- 3 "Jajca" for Recept ID 2
 (0.5, 'L', 13, 2), -- 0.5L "Mleko" for Recept ID 2
-(100, 'g', 3, 2), -- 100g of "Maslo" for Recept ID 2
 (0.5, 'L', 14, 2), -- 0.5L "Voda" for Recept ID 2
 
-(1, 'psc', 6, 3),
-(400, 'g', 10, 3),
-(240, 'g', 11, 3),
-(200, 'mL', 12, 3),
-(150, 'g', 1, 3),
-(100, 'g', 3, 3), -- 100g of "Maslo" for Recept ID 3
-(2, 'pcs', 4, 3), -- 3 "Jajca" for Recept ID 3
+(1, 'pcs', 6, 3),  -- 1 "Paradižnik" for Recept ID 3
+(400, 'g', 10, 3), -- 400g "Špageti" for Recept ID 3
+(240, 'g', 11, 3), -- 240g "Hamburška slanina" for Recept ID 3
+(200, 'mL', 12, 3),-- 200mL "Smetana" for Recept ID 3
+(150, 'g', 1, 3),  -- 150g "Moka" for Recept ID 3
+(100, 'g', 3, 3),  -- 100g "Maslo" for Recept ID 3
+(2, 'pcs', 4, 3),  -- 2 "Jajca" for Recept ID 3
 
-(2, 'pcs', 15, 4),  -- 2 "Čebula" for Recept ID 4
-(3, 'pcs', 16, 4),  -- 3 "Česen" for Recept ID 4
-(2, 'pcs', 17, 4),  -- 2 "Bučke" for Recept ID 4
-(2, 'pcs', 18, 4),  -- 2 "Korenček" for Recept ID 4
-(500, 'g', 6, 4),   -- 500g "Paradižnik" for Recept ID 4
-(300, 'g', 19, 4),  -- 300g "Nariban sir" for Recept ID 4
-(400, 'g', 8, 4),   -- 400g "Riž" for Recept ID 4
+(2, 'pcs', 15, 4), -- 2 "Čebula" for Recept ID 4
+(3, 'pcs', 16, 4), -- 3 "Česen" for Recept ID 4
+(2, 'pcs', 17, 4), -- 2 "Bučke" for Recept ID 4
+(2, 'pcs', 18, 4), -- 2 "Korenček" for Recept ID 4
+(500, 'g', 6, 4),  -- 500g "Paradižnik" for Recept ID 4
+(300, 'g', 19, 4), -- 300g "Nariban sir" for Recept ID 4
+(400, 'g', 8, 4),  -- 400g "Riž" for Recept ID 4
 
-(250, 'g', 1, 5),   -- 250g "Moka" for Recept ID 5
-(200, 'g', 2, 5),   -- 200g "Sladkor" for Recept ID 5
-(50, 'g', 20, 5),   -- 50g "Kakav v prahu" for Recept ID 5
-(1, 'pcs', 21, 5),  -- 1 "Pecilni prašek" for Recept ID 5
-(3, 'pcs', 4, 5),   -- 3 "Jajca" for Recept ID 5
-(150, 'g', 3, 5),   -- 150g "Maslo" for Recept ID 5
-(200, 'g', 22, 5);  -- 200g "Čokoladna glazura" for Recept ID 5
+(250, 'g', 1, 5),  -- 250g "Moka" for Recept ID 5
+(200, 'g', 2, 5),  -- 200g "Sladkor" for Recept ID 5
+(50, 'g', 20, 5),  -- 50g "Kakav v prahu" for Recept ID 5
+(1, 'pcs', 21, 5), -- 1 "Pecilni prašek" for Recept ID 5
+(3, 'pcs', 4, 5),  -- 3 "Jajca" for Recept ID 5
+(150, 'g', 3, 5),  -- 150g "Maslo" for Recept ID 5
+(200, 'g', 22, 5); -- 200g "Čokoladna glazura" for Recept ID 5
 
 INSERT INTO Recept (Ime, Opis, tezavnost, caspriprave, slika, TK_Uporabnik) 
 VALUES 
@@ -246,24 +244,18 @@ VALUES
 ('Dodaj kokosovo mleko in kuhaj, dokler se omaka ne zgosti.', 5, 6),
 ('Na koncu dodaj svež koriander in postreži s kuhanim rižem.', 6, 6);
 
-INSERT INTO Sestavina (ime, TK_tip) VALUES 
-('Kokosovo mleko', 1),  -- Coconut milk (under general ingredients category)
-('Kurry v prahu', 5),   -- Curry powder (under spices category)
-('Kumin', 5),           -- Cumin (under spices category)
-('Kurkuma', 5);         -- Turmeric (under spices category)
+INSERT INTO Sestavina (ime, cena, TK_tip) VALUES 
+('Kokosovo mleko', 0.50, 1),    -- Cena na liter
+('Kurry v prahu', 1.80 / 100, 5), -- Cena na gram
+('Kumin', 2.00 / 100, 5),      -- Cena na gram
+('Kurkuma', 1.50 / 100, 5);    -- Cena na gram
 
-
-INSERT INTO SestavinaKolicina (kolicina, enota, TK_sestavina, TK_recepta) 
-VALUES 
+INSERT INTO SestavinaKolicina (kolicina, enota, TK_sestavina, TK_recepta) VALUES 
 (300, 'g', 7, 6),  -- 300g "Piščanec" for Recept ID 6
-(1, 'pcs', 1, 6),   -- 1 "Čebula" for Recept ID 6
-(2, 'g', 1, 6), -- 2 "Česen" for Recept ID 6
-(400, 'mL', 12, 6),  -- 400mL "Kokosovo mleko" for Recept ID 6
-(10, 'g', 5, 6),    -- 10g "Začimbe" for curry powder for Recept ID 6
-(5, 'g', 5, 6),     -- 5g "Začimbe" for cumin for Recept ID 6
-(5, 'g', 5, 6),     -- 5g "Začimbe" for turmeric for Recept ID 6
-(200, 'g', 8, 6);   -- 200g "Riž" for Recept ID 6
-
-
-
-
+(1, 'pcs', 15, 6), -- 1 "Čebula" for Recept ID 6
+(2, 'pcs', 16, 6), -- 2 "Česen" for Recept ID 6
+(400, 'mL', 23, 6),-- 400mL "Kokosovo mleko" for Recept ID 6
+(10, 'g', 24, 6),  -- 10g "Kurry v prahu" for Recept ID 6
+(5, 'g', 25, 6),   -- 5g "Kumin" for Recept ID 6
+(5, 'g', 26, 6),   -- 5g "Kurkuma" for Recept ID 6
+(200, 'g', 8, 6);  -- 200g "Riž" for Recept ID 6

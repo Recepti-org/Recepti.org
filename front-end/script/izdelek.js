@@ -133,24 +133,40 @@ function receptsestavine() {
   }
 }
 
-// Function to update the list of ingredients in the UI
+// Funkcija za posodobitev seznama sestavin v uporabniškem vmesniku s preračunom cene
 function updateIngredientList(ingredients, peopleCount) {
   const sestavineList = document.getElementById("sestavine");
-  sestavineList.innerHTML = ""; // Clear any existing items in the list
+  sestavineList.innerHTML = ""; // Počisti obstoječe elemente na seznamu
 
   if (ingredients.length > 0) {
+    let totalCost = 0; // Skupna cena (inicializiraj na 0)
+
     ingredients.forEach((ingredient) => {
       const li = document.createElement("li");
       li.classList.add("list-group-item", "custom-list-item");
 
-      // Calculate the adjusted quantity based on the number of people
-      const adjustedKolicina = ingredient.kolicina * peopleCount; // Multiply base quantity by people count
+      // Preračunaj prilagojeno količino glede na število oseb
+      const adjustedKolicina = ingredient.kolicina * peopleCount;
 
-      li.textContent = `${ingredient.tkSestavina.ime}: ${adjustedKolicina} ${ingredient.enota}`;
-      sestavineList.appendChild(li);
+      // Izračunaj strošek za posamezno sestavino
+      const ingredientCost = adjustedKolicina * ingredient.tkSestavina.cena;
+      totalCost += ingredientCost; // Dodaj strošek trenutne sestavine k skupni ceni
+
+      // Posodobi besedilo za posamezno sestavino
+      li.textContent = `${ingredient.tkSestavina.ime}: ${adjustedKolicina} ${
+        ingredient.enota
+      } - Cena: ${ingredientCost.toFixed(2)} €`;
+      sestavineList.appendChild(li); // Dodaj element na seznam
     });
+
+    // Dodaj skupno ceno na konec seznama
+    const totalLi = document.createElement("li");
+    totalLi.classList.add("list-group-item", "font-weight-bold");
+    totalLi.textContent = `Skupni strošek: ${totalCost.toFixed(2)} €`;
+    sestavineList.appendChild(totalLi);
   } else {
+    // Če ni sestavin, prikaži privzeto sporočilo
     sestavineList.innerHTML =
-      "<li class='list-group-item'>No ingredients available.</li>";
+      "<li class='list-group-item'>Sestavine niso na voljo.</li>";
   }
 }
