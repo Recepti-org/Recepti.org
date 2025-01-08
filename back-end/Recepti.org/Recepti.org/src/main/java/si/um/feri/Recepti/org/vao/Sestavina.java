@@ -12,6 +12,7 @@ public class Sestavina {
     private int idsestavine;
 
     private String ime;
+    private Float cena;
 
     @ManyToOne
     @JoinColumn(name = "TK_tip")
