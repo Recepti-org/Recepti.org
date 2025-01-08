@@ -114,24 +114,40 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Function to fetch ingredients and adjust quantities based on the input number of people
+// Funkcija za prikaz sestavin za privzeto število oseb (2 osebi)
 function receptsestavine() {
-  const peopleCount = document.getElementById("peopleCount").value;
-  if (peopleCount && peopleCount > 0) {
+  const urlParams = new URLSearchParams(window.location.search);
+  const idrecept = urlParams.get("id"); // Pridobi ID recepta iz URL-parametrov
+
+  if (!idrecept) {
+    console.error("Manjka ID recepta v URL-ju.");
+    return;
+  }
+
+  const peopleCountInput = document.getElementById("peopleCount");
+  const peopleCount = peopleCountInput.value || 1; // Privzeto število oseb, če ni izbrano
+
+  if (peopleCount > 0) {
     fetch(`http://localhost:8080/api/recept/${idrecept}`)
       .then((response) => response.json())
       .then((data) => {
-        // Update the UI with the adjusted ingredient quantities
+        // Posodobi UI s sestavinami za izbrano število oseb
         updateIngredientList(data, peopleCount);
       })
       .catch((error) => {
-        console.error("Error fetching ingredient data:", error);
+        console.error("Napaka pri pridobivanju podatkov o sestavinah:", error);
       });
   } else {
-    // If no valid number is entered, clear the list or show a default message
+    // Če ni veljavne številke oseb, prikaži privzeto sporočilo
     document.getElementById("sestavine").innerHTML =
-      "<li class='list-group-item'>Please enter a valid number of people.</li>";
+      "<li class='list-group-item'>Vnesite veljavno število oseb.</li>";
   }
 }
+
+// Funkcija za inicializacijo privzetega prikaza sestavin za 2 osebi
+document.addEventListener("DOMContentLoaded", () => {
+  receptsestavine(); // Samodejno naloži sestavine za 2 osebi ob nalaganju strani
+});
 
 // Funkcija za posodobitev seznama sestavin v uporabniškem vmesniku s preračunom cene
 function updateIngredientList(ingredients, peopleCount) {

@@ -245,7 +245,7 @@ VALUES
 ('Na koncu dodaj svež koriander in postreži s kuhanim rižem.', 6, 6);
 
 INSERT INTO Sestavina (ime, cena, TK_tip) VALUES 
-('Kokosovo mleko', 0.50, 1),    -- Cena na liter
+('Kokosovo mleko', 0.50 / 1000, 1),    -- Cena na liter
 ('Kurry v prahu', 1.80 / 100, 5), -- Cena na gram
 ('Kumin', 2.00 / 100, 5),      -- Cena na gram
 ('Kurkuma', 1.50 / 100, 5);    -- Cena na gram
