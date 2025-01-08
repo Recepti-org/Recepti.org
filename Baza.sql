@@ -52,6 +52,7 @@ CREATE TABLE IF NOT EXISTS Tipsestavine(
 CREATE TABLE IF NOT EXISTS Sestavina (
     `idsestavine` INT NOT NULL AUTO_INCREMENT,
     `ime` VARCHAR(200) NOT NULL,
+    `cena` FLOAT NOT NULL CHECK (cena >= 0) DEFAULT 0.00,
         `TK_tip` INT NOT NULL,
     PRIMARY KEY (`idsestavine`),
 	FOREIGN KEY (TK_tip) REFERENCES Tipsestavine (idtipa)
@@ -166,33 +167,29 @@ INSERT INTO Tipsestavine (ime) VALUES
 ('Voda'),              -- ID 14
 ('Drugo');             -- Additional categories
 
-
-
-INSERT INTO Sestavina (ime, TK_tip) VALUES 
-('Moka', 1),       -- Flour
-('Sladkor', 5),    -- Sugar
-('Maslo', 1),      -- Butter
-('Jajca', 1),      -- Eggs
-('Sol', 5),        -- Salt
-('Paradižnik', 6),
-('Piščanec', 7),
-('Riž', 8),
-('Paprika', 9),
-('Špageti', 10),
-('Hamburška slanina', 11),
-('Smetana', 12),
-('Mleko', 1),
-('Voda', 1),
-('Čebula', 1),         -- Onion
-('Česen', 1),          -- Garlic
-('Bučke', 6),          -- Zucchini
-('Korenček', 6),       -- Carrot
-('Nariban sir', 12),    -- Grated cheese
-('Kakav v prahu', 2),  -- Cocoa powder
-('Pecilni prašek', 2), -- Baking powder
-('Čokoladna glazura', 2); -- Chocolate glaze
-
-
+INSERT INTO Sestavina (ime, cena, TK_tip) VALUES 
+('Moka', 1.20, 1),
+('Sladkor', 0.90, 5),
+('Maslo', 2.50, 1),
+('Jajca', 0.30, 1),
+('Sol', 0.05, 5),
+('Paradižnik', 1.50, 6),
+('Piščanec', 5.00, 7),
+('Riž', 1.80, 8),
+('Paprika', 1.20, 9),
+('Špageti', 1.50, 10),
+('Hamburška slanina', 3.00, 11),
+('Smetana', 0.80, 12),
+('Mleko', 0.70, 1),
+('Voda', 0.00, 1),
+('Čebula', 0.40, 1),
+('Česen', 0.20, 1),
+('Bučke', 1.00, 6),
+('Korenček', 0.50, 6),
+('Nariban sir', 2.80, 12),
+('Kakav v prahu', 1.50, 2),
+('Pecilni prašek', 0.30, 2),
+('Čokoladna glazura', 3.50, 2);
 
 INSERT INTO SestavinaKolicina (kolicina, enota, TK_sestavina, TK_recepta) VALUES 
 (200, 'g', 7, 1), -- 200g of "Piščanec" for Recept ID 1
